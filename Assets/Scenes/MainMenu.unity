@@ -872,7 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15eeb905c8869d74d84de5aa6ddf3526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFXObject: {fileID: 0}
+  soundFXObject: {fileID: 8233301587046004527, guid: ece769680ef074e45b7121fcace1279c, type: 3}
   audioSource: {fileID: 389948718}
   audioMixer: {fileID: 24100000, guid: dcf451a6b8f92754ba1c4db19e53740a, type: 2}
   sfxVolume: 1
