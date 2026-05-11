@@ -48,4 +48,41 @@ public class GameFlowManager : Singleton<GameFlowManager>
         screenManager.ActivatePauseScreen();
     }
 
+    public void ToSettings() 
+    {
+        gameStateMachine.EnterSettingState();
+        screenManager.ActivateSettingScreen();
+    }
+
+    public void GoBack() 
+    {
+        if (gameStateMachine.GetPreviousState() == null) return; 
+
+        ChangeGameFlow(gameStateMachine.GetPreviousState()); 
+    }
+
+
+    private void ChangeGameFlow(IGameState gameState) 
+    {
+        switch (gameState) 
+        {
+            case MainMenuState:
+                ToMainMenu();
+                break;
+            case SettingState:
+                ToSettings();
+                break;
+            case PauseState:
+                ToPause();
+                break;
+            case GameplayState:
+                ToGameplay();
+                break;
+            default:
+                return; 
+
+        }
+    }
+
+
 }

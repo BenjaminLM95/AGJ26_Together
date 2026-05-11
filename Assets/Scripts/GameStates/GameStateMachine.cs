@@ -18,6 +18,7 @@ public class GameStateMachine : Singleton<GameStateMachine>
     private IGameState currentGameState;
     private IGameState previousGameState;
     public string currentGameStateString; //{  get; private set; } 
+    public string previousGameStateString;
 
 
     public override void Awake()
@@ -54,14 +55,25 @@ public class GameStateMachine : Singleton<GameStateMachine>
         {
             if (currentGameState == gameState) return;
 
-            currentGameState.Exit();
+            currentGameState.Exit();            
             previousGameState = currentGameState;
+            previousGameStateString = previousGameState.ToString(); 
         }
 
         currentGameState = gameState;
         currentGameStateString = currentGameState.ToString();
         currentGameState.Enter();
 
+    }
+
+    public IGameState GetCurrentState() 
+    {
+        return currentGameState;
+    }
+
+    public IGameState GetPreviousState() 
+    {
+        return previousGameState;
     }
 
 }

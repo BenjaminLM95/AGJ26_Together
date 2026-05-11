@@ -51,6 +51,9 @@ public class UIManager : Singleton<UIManager>
     private void DisactivateAllUI()
     {
         mainMenuScreen.SetActive(false);
+        settingScreen.SetActive(false);
+        pauseScreen.SetActive(false);
+        gameplayScreen.SetActive(false);
     }
 
 }
