@@ -18,8 +18,8 @@ public class PlayerBody : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb ??= GetComponent<Rigidbody>();
-        playerColider ??= GetComponent<CapsuleCollider>();
+        rb = GetComponent<Rigidbody>();
+        playerColider = GetComponent<CapsuleCollider>();
         SwitchState(PlayerState.Head);
     }
 
@@ -45,6 +45,10 @@ public class PlayerBody : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks if the player has the body parts to move
+    /// </summary>
+    /// <returns></returns>
     public bool CanMove()
     {
         return currentState == PlayerState.Head ||
@@ -52,7 +56,10 @@ public class PlayerBody : MonoBehaviour
                currentState == PlayerState.StretchyArm ||
                currentState == PlayerState.FullBody;
     }
-
+    /// <summary>
+    /// Checks if the player has the body parts to jump
+    /// </summary>
+    /// <returns></returns>
     public bool CanJump()
     {
         return currentState == PlayerState.JumpLeg ||
@@ -60,20 +67,18 @@ public class PlayerBody : MonoBehaviour
                currentState == PlayerState.StretchyArm ||
                currentState == PlayerState.FullBody;
     }
-
-    public bool CanWalkNormal()
-    {
-        return currentState == PlayerState.FullBody ||
-               currentState == PlayerState.CrystalLeg ||
-               currentState == PlayerState.StretchyArm ||
-               currentState == PlayerState.FullBody;
-    }
-
+    /// <summary>
+    /// Checks if the player is a head only state for movement/controls 
+    /// </summary>
+    /// <returns></returns>
     public bool CanRoll()
     {
         return currentState == PlayerState.Head;
     }
-
+    /// <summary>
+    /// Handles switching states logic
+    /// </summary>
+    /// <param name="newState"></param>
     public void SwitchState(PlayerState newState)
     {
         currentState = newState;
@@ -87,7 +92,9 @@ public class PlayerBody : MonoBehaviour
             SetWalkMode();
         }
     }
-
+    /// <summary>
+    /// Sets Rigidbody to un-freeze on z to roll and makes the collider into a sphere
+    /// </summary>
     private void SetBallMode()
     {
         if (rb != null)
@@ -106,6 +113,9 @@ public class PlayerBody : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Sets Rigidbody to freeze on rotation and makes the collider into a capsule
+    /// </summary>
     private void SetWalkMode()
     {
         // Setting them back up to standing rotation

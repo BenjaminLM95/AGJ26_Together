@@ -19,7 +19,6 @@ public class MovementController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        isJumpOnCooldown = true;
         rb = GetComponent<Rigidbody>();
         body ??= GetComponent<PlayerBody>();
     }
@@ -27,12 +26,7 @@ public class MovementController : MonoBehaviour
     public void SetMove(Vector2 moveInput)
     {
         moveDirection = moveInput;
-        SetXMovement(moveInput);
-    }
-
-    private void SetXMovement(Vector2 moveInput)
-    {
-        xMovement = new Vector2(moveInput.x, 0);
+        xMovement.x = moveInput.x;
     }
 
     private void FixedUpdate()
@@ -74,18 +68,23 @@ public class MovementController : MonoBehaviour
 
     public void RequestJump()
     {
-        if (!isJumpOnCooldown) return;
-        if (!body.CanJump()) return;
-        if (!IsGrounded()) return;
+        if (isJumpOnCooldown) return; // Checks if jump is on cooldown
+        if (!body.CanJump()) return; // Checks if the player has the body parts to jump
+        if (!IsGrounded()) return; // Checks if the player is grounded
 
         Jump();
         StartCoroutine(JumpCooldown(jumpCooldownTime));
     }
+
     private void Jump()
     {
-        Vector2 jumpDirection = (xMovement + Vector2.up).normalized;
+        Vector2 jumpDirection = (moveDirection + Vector2.up).normalized;
         rb.AddForce(jumpDirection * jumpForce, ForceMode.Impulse);
     }
+    /// <summary>
+    /// Checks if raycast hits for ground check
+    /// </summary>
+    /// <returns></returns>
     private bool IsGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, groundCheckDistance);
@@ -94,11 +93,11 @@ public class MovementController : MonoBehaviour
     
     private IEnumerator JumpCooldown(float jumpCooldownTime)
     {
-        isJumpOnCooldown = false;
+        isJumpOnCooldown = true;
 
         yield return new WaitForSeconds(jumpCooldownTime);
 
-        isJumpOnCooldown = true;
+        isJumpOnCooldown = false;
     }
 
     private void OnDrawGizmos()
