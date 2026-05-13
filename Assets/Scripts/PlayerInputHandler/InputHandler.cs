@@ -5,19 +5,14 @@ public class InputHandler : MonoBehaviour, PlayerInput.IPlayerActions
 {
     private PlayerInput input;
 
+    [SerializeField] private MovementController movementController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         input = new PlayerInput();
         input.Player.SetCallbacks(this);
-        input.Enable();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //input.Enable();
+        movementController ??= GetComponent<MovementController>();
     }
 
     private void OnEnable()
@@ -31,20 +26,21 @@ public class InputHandler : MonoBehaviour, PlayerInput.IPlayerActions
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        //Debug.Log("Moving " + context.ReadValue<Vector2>());
+        movementController.SetMove(context.ReadValue<Vector2>());
+
         if (context.started)
         {
-            Debug.Log($"{context.action.name} has started");
+            //Debug.Log($"{context.action.name} has started");
         }
 
         if (context.performed)
         {
-            Debug.Log($"{context.action.name} has performed");
+            //Debug.Log($"{context.action.name} has performed");
         }
 
         if (context.canceled)
         {
-            Debug.Log($"{context.action.name} has canceled");
+            //Debug.Log($"{context.action.name} has canceled");
         }
     }
 
@@ -53,17 +49,17 @@ public class InputHandler : MonoBehaviour, PlayerInput.IPlayerActions
         //Debug.Log("Jump");
         if (context.started)
         {
-            Debug.Log($"{context.action.name} has started");
+            movementController.RequestJump();
         }
 
         if (context.performed)
         {
-            Debug.Log($"{context.action.name} has performed");
+            //Debug.Log($"{context.action.name} has performed");
         }
 
         if (context.canceled)
         {
-            Debug.Log($"{context.action.name} has canceled");
+            //Debug.Log($"{context.action.name} has canceled");
         }
     }
 
@@ -72,17 +68,17 @@ public class InputHandler : MonoBehaviour, PlayerInput.IPlayerActions
         //Debug.Log("Interacting");
         if (context.started)
         {
-            Debug.Log($"{context.action.name} has started");
+            //Debug.Log($"{context.action.name} has started");
         }
 
         if (context.performed)
         {
-            Debug.Log($"{context.action.name} has performed");
+            //Debug.Log($"{context.action.name} has performed");
         }
 
         if (context.canceled)
         {
-            Debug.Log($"{context.action.name} has canceled");
+            //Debug.Log($"{context.action.name} has canceled");
         }
     }
 
@@ -91,17 +87,17 @@ public class InputHandler : MonoBehaviour, PlayerInput.IPlayerActions
         //Debug.Log("Stretchy Arm Go");
         if (context.started)
         {
-            Debug.Log($"{context.action.name} has started");
+            //Debug.Log($"{context.action.name} has started");
         }
 
         if (context.performed)
         {
-            Debug.Log($"{context.action.name} has performed");
+            //Debug.Log($"{context.action.name} has performed");
         }
 
         if (context.canceled)
         {
-            Debug.Log($"{context.action.name} has canceled");
+            //Debug.Log($"{context.action.name} has canceled");
         }
     }
 }
