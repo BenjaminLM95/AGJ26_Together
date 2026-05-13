@@ -6,12 +6,26 @@ public class TaskBase : MonoBehaviour, ITaskLogic
 
     public bool isInProgress;
 
-    public bool isFinished; 
+    public bool isFinished;
 
+    public string taskName;
+
+    public string taskDescription;
+
+
+    private void Start()
+    {
+        isInProgress = true;
+    }
+
+    private void Update()
+    {
+        CheckForCompletion(); 
+    }
 
     public void CheckForCompletion()
     {
-        if (CheckConditions() && isInProgress) 
+        if (CheckConditions() && isInProgress && !isFinished) 
         {
             isFinished = true; 
         }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic; 
 
-public class TaskHandler : MonoBehaviour
+public class TaskHandler : Singleton<TaskHandler>
 {
     [SerializeField] List<TaskBase> unassignedTasks = new List<TaskBase>();
 
@@ -9,13 +9,34 @@ public class TaskHandler : MonoBehaviour
 
     [SerializeField] List<TaskBase> completedTasks = new List<TaskBase>();
 
+    public override void Awake()
+    {
+        base.Awake();
+    }
 
     private void Start()
     {
+        
+    }
+
+    private void Update()
+    {
         for(int i = 0; i < unassignedTasks.Count; i++) 
         {
-            
+            if (unassignedTasks[i].isInProgress) 
+            {
+                AssignATask(unassignedTasks[i]);
+            }
         }
+
+        for(int i = 0; i < inProgressTasks.Count; i++) 
+        {
+            if (inProgressTasks[i].isFinished) 
+            {
+                CompleteATask(inProgressTasks[i]);
+            }
+        }
+
     }
 
     public void AssignATask(TaskBase task) 
