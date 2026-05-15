@@ -53,6 +53,8 @@ public class TaskHandler : Singleton<TaskHandler>
 
         inProgressTasks.Add(task);
 
+        TaskNotificationUI.Instance.NotifyNewTask(task.taskDescription); 
+
         unassignedTasks.Remove(task); 
 
         updateTaskList = true;
@@ -63,6 +65,8 @@ public class TaskHandler : Singleton<TaskHandler>
         if(!inProgressTasks.Contains(task)) return;
 
         completedTasks.Add(task);
+
+        TaskNotificationUI.Instance.NotifyCompleteTask(task.taskDescription); 
 
         inProgressTasks.Remove(task);
 
