@@ -29,6 +29,7 @@ public class GameFlowManager : Singleton<GameFlowManager>
        
         gameStateMachine.EnterMainMenu();
         screenManager.ActivateMainMenuScreen();
+        levelManager.LoadMainMenu(); 
     }
 
     public void ToStartGame()

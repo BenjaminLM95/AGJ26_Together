@@ -17,6 +17,13 @@ public class SFXManager : Singleton<SFXManager>
         base.Awake();
     }
 
+    public void SetVolume(float volume)
+    {
+        audioSource.volume = volume;
+        sfxVolume = volume;
+    }
+
+
     public void PlaySoundFXClip(string sfxName)
     {
         AudioClip audioClip = sfxRepertoire.GetAudioClip(sfxName);
@@ -40,4 +47,35 @@ public class SFXManager : Singleton<SFXManager>
         Destroy(audioSource.gameObject, clipLength);
 
     }
+
+    public void PlaySoundFXClip(string sfxName, float fixedVolume) 
+    {
+        if (fixedVolume > 1) fixedVolume = 1; 
+
+        if(fixedVolume < 0) fixedVolume = 0;    
+
+        AudioClip audioClip = sfxRepertoire.GetAudioClip(sfxName);
+
+        // Spawn the gameObject, in this case is child of this manager
+        AudioSource audioSource = Instantiate(soundFXObject, Vector3.zero, Quaternion.identity, this.transform);
+
+        // assign the audioClip
+        audioSource.clip = audioClip;
+
+        // Assign Volume
+        audioSource.volume = sfxVolume * fixedVolume;
+
+        // play Sound
+        audioSource.Play();
+
+        // get length of sound FX clip
+        float clipLength = audioSource.clip.length;
+
+        //destroy the clip after it is done playing
+        Destroy(audioSource.gameObject, clipLength);
+    }
+
+
+
+
 }
