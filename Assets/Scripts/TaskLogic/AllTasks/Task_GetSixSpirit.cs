@@ -8,7 +8,7 @@ public class Task_GetSixSpirit : TaskBase
     void Start()
     {
         GiveTaskName("SixSpirit");
-        GiveTaskDescription("Collect six purple spirits");
+        GiveTaskDescription("Collect six blue wisp spirits");
         isUnassigned = true;
     }
 
