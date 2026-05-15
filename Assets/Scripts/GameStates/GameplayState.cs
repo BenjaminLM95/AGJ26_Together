@@ -5,6 +5,11 @@ public class GameplayState : IGameState
     public void Enter()
     {
         Debug.Log("Gameplay Enter"); 
+
+        if(GameStateMachine.Instance.previousGameStateString != "PauseState") 
+        {
+            AudioManager.Instance.PlayMusic("PH_Gameplay");
+        }
     }
 
     public void Exit()

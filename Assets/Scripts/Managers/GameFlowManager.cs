@@ -26,6 +26,7 @@ public class GameFlowManager : Singleton<GameFlowManager>
 
     public void ToMainMenu()
     {
+       
         gameStateMachine.EnterMainMenu();
         screenManager.ActivateMainMenuScreen();
     }
@@ -38,26 +39,30 @@ public class GameFlowManager : Singleton<GameFlowManager>
 
     public void ToGameplay()
     {
+        SFXManager.Instance.PlaySoundFXClip("PH_MouseClick");
         gameStateMachine.EnterGameplayState();
         screenManager.ActivateGameplayScreen();        
     }
 
     public void ToPause()
     {
+        SFXManager.Instance.PlaySoundFXClip("PH_MouseClick"); 
         gameStateMachine.EnterPause();
         screenManager.ActivatePauseScreen();
     }
 
     public void ToSettings() 
     {
+        SFXManager.Instance.PlaySoundFXClip("PH_MouseClick");
         gameStateMachine.EnterSettingState();
         screenManager.ActivateSettingScreen();
     }
 
     public void GoBack() 
     {
-        if (gameStateMachine.GetPreviousState() == null) return; 
+        if (gameStateMachine.GetPreviousState() == null) return;
 
+        SFXManager.Instance.PlaySoundFXClip("PH_MouseClick");
         ChangeGameFlow(gameStateMachine.GetPreviousState()); 
     }
 

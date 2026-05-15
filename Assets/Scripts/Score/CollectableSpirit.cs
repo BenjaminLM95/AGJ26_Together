@@ -8,6 +8,7 @@ public class CollectableSpirit : MonoBehaviour
         if (other.gameObject.CompareTag("Player")) 
         {
             PlayerScoreManager.Instance.ObtainOneSpirit();
+            SFXManager.Instance.PlaySoundFXClip("PH_WispWhoosh");
             this.gameObject.SetActive(false);
         }
     }

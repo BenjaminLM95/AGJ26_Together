@@ -53,7 +53,8 @@ public class TaskHandler : Singleton<TaskHandler>
 
         inProgressTasks.Add(task);
 
-        TaskNotificationUI.Instance.NotifyNewTask(task.taskDescription); 
+        TaskNotificationUI.Instance.NotifyNewTask(task.taskDescription);
+        SFXManager.Instance.PlaySoundFXClip("PH_NewTask");
 
         unassignedTasks.Remove(task); 
 
@@ -66,7 +67,8 @@ public class TaskHandler : Singleton<TaskHandler>
 
         completedTasks.Add(task);
 
-        TaskNotificationUI.Instance.NotifyCompleteTask(task.taskDescription); 
+        TaskNotificationUI.Instance.NotifyCompleteTask(task.taskDescription);
+        SFXManager.Instance.PlaySoundFXClip("PH_TaskCompleted");
 
         inProgressTasks.Remove(task);
 
