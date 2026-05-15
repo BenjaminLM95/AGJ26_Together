@@ -15,7 +15,7 @@ public class TaskBase : MonoBehaviour, ITaskLogic
 
     private void Start()
     {
-        isInProgress = true;
+        isUnassigned = true;
     }
 
     private void Update()
@@ -34,6 +34,16 @@ public class TaskBase : MonoBehaviour, ITaskLogic
     public virtual bool CheckConditions() 
     {
         return false; 
+    }
+
+    public void GiveTaskName(string tName) 
+    {
+        taskName = tName; 
+    }
+
+    public void GiveTaskDescription(string tDescription) 
+    { 
+        taskDescription = tDescription; 
     }
  
 }

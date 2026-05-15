@@ -13,7 +13,7 @@ public class LevelManager : Singleton<LevelManager>
         SceneManager.LoadScene(0);
     }
 
-    public void LoadFirstLevel()
+    public void LoadGameplayLevel()
     {
         SceneManager.LoadScene(1);
     }

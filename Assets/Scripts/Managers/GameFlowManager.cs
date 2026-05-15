@@ -32,7 +32,7 @@ public class GameFlowManager : Singleton<GameFlowManager>
 
     public void ToStartGame()
     {
-        levelManager.LoadFirstLevel();
+        levelManager.LoadGameplayLevel();
         ToGameplay();
     }
 

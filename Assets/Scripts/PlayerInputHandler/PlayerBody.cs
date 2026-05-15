@@ -107,8 +107,8 @@ public class PlayerBody : MonoBehaviour
         }
         if (playerColider != null)
         { 
-            playerColider.radius = sphereSize;
-            playerColider.height = sphereSize;
+            //playerColider.radius = sphereSize;
+            //playerColider.height = sphereSize;
         }
 
     }
@@ -127,8 +127,8 @@ public class PlayerBody : MonoBehaviour
         }
         if (playerColider != null)
         {
-            playerColider.radius = bodyRadius;
-            playerColider.height = bodyHeight;
+            //playerColider.radius = bodyRadius;
+            //playerColider.height = bodyHeight;
         }
     }
 }

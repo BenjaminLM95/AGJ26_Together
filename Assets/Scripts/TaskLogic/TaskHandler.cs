@@ -1,13 +1,16 @@
 using UnityEngine;
-using System.Collections.Generic; 
+using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 public class TaskHandler : Singleton<TaskHandler>
 {
-    [SerializeField] List<TaskBase> unassignedTasks = new List<TaskBase>();
+    public List<TaskBase> unassignedTasks = new List<TaskBase>();
 
-    [SerializeField] List<TaskBase> inProgressTasks = new List<TaskBase>();
+    public List<TaskBase> inProgressTasks = new List<TaskBase>();
 
-    [SerializeField] List<TaskBase> completedTasks = new List<TaskBase>();
+    public List<TaskBase> completedTasks = new List<TaskBase>();
+
+    public bool updateTaskList = false; 
 
     public override void Awake()
     {
@@ -37,6 +40,11 @@ public class TaskHandler : Singleton<TaskHandler>
             }
         }
 
+        for(int i = 0; i < inProgressTasks.Count; i++) 
+        {
+            inProgressTasks[i].CheckForCompletion(); 
+        }
+
     }
 
     public void AssignATask(TaskBase task) 
@@ -46,6 +54,8 @@ public class TaskHandler : Singleton<TaskHandler>
         inProgressTasks.Add(task);
 
         unassignedTasks.Remove(task); 
+
+        updateTaskList = true;
     }
 
     public void CompleteATask(TaskBase task) 
@@ -54,7 +64,9 @@ public class TaskHandler : Singleton<TaskHandler>
 
         completedTasks.Add(task);
 
-        inProgressTasks.Remove(task); 
+        inProgressTasks.Remove(task);
+
+        updateTaskList = true;
     }
 
 }

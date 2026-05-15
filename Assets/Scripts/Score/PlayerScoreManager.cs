@@ -1,8 +1,10 @@
 using UnityEngine;
+using TMPro;
 
 public class PlayerScoreManager : Singleton<PlayerScoreManager>
 {
-    [SerializeField] private int spiritScore; 
+    [SerializeField] private int spiritScore;
+    [SerializeField] private TextMeshProUGUI scoreText; 
     public override void Awake()
     {
         base.Awake();
@@ -12,6 +14,7 @@ public class PlayerScoreManager : Singleton<PlayerScoreManager>
     void Start()
     {
         spiritScore = 0;
+        UpdateScoreText();
     }
 
     // Update is called once per frame
@@ -22,7 +25,8 @@ public class PlayerScoreManager : Singleton<PlayerScoreManager>
 
     public void ObtainOneSpirit() 
     {
-        spiritScore++; 
+        spiritScore++;
+        UpdateScoreText();
     }
 
     public int GetSpiritScore() 
@@ -33,5 +37,10 @@ public class PlayerScoreManager : Singleton<PlayerScoreManager>
     public void RestarScore() 
     {
         spiritScore = 0;
+    }
+
+    public void UpdateScoreText() 
+    {
+        scoreText.text = spiritScore.ToString();
     }
 }
