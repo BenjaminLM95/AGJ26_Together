@@ -21,6 +21,13 @@ public class Task_PlayerReachGoal : TaskBase
         }
     }
 
+    public override bool CheckForRequirements()
+    {
+        Debug.Log("Check if its the gameplay state"); 
+
+        return GameStateMachine.Instance.currentGameStateString == "GameplayState";
+    }
+
     public override bool CheckConditions()
     {       
 

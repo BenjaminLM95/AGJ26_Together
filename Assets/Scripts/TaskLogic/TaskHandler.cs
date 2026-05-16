@@ -40,6 +40,11 @@ public class TaskHandler : Singleton<TaskHandler>
             }
         }
 
+        for(int i = 0; i < unassignedTasks.Count; i++) 
+        {
+            unassignedTasks[i].CheckForAssignment(); 
+        }
+
         for(int i = 0; i < inProgressTasks.Count; i++) 
         {
             inProgressTasks[i].CheckForCompletion(); 

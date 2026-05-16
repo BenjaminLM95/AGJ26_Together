@@ -8,9 +8,9 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     public virtual void Awake()
     {
         #region Singleton Pattern
-        if (_instance != null)
+        if (_instance != null && _instance != this)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
             return;
         }
         else

@@ -20,7 +20,7 @@ public class TaskBase : MonoBehaviour, ITaskLogic
 
     private void Update()
     {
-        CheckForCompletion(); 
+        
     }
 
     public void CheckForCompletion()
@@ -31,7 +31,20 @@ public class TaskBase : MonoBehaviour, ITaskLogic
         }
     }
 
+    public void CheckForAssignment() 
+    {
+        if(CheckForRequirements() && isUnassigned && !isInProgress) 
+        {
+            isInProgress = true;
+        }
+    }
+
     public virtual bool CheckConditions() 
+    {
+        return false; 
+    }
+
+    public virtual bool CheckForRequirements() 
     {
         return false; 
     }

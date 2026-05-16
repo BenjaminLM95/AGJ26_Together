@@ -28,6 +28,20 @@ public class Task_GetSixSpirit : TaskBase
         }
     }
 
+    public override bool CheckForRequirements()
+    {
+        if(playerScoreManager == null) return false;
+
+        if (playerScoreManager.GetSpiritScore() > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

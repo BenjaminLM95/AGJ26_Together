@@ -10,6 +10,8 @@ public class GameplayState : IGameState
         {
             AudioManager.Instance.PlayMusic("PH_Gameplay");
         }
+
+        Time.timeScale = 1.0f;
     }
 
     public void Exit()

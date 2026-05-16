@@ -15,7 +15,7 @@ public class GameFlowManager : Singleton<GameFlowManager>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ToMainMenu();
+        MainMenuStart(); 
     }
 
     // Update is called once per frame
@@ -30,6 +30,12 @@ public class GameFlowManager : Singleton<GameFlowManager>
         gameStateMachine.EnterMainMenu();
         screenManager.ActivateMainMenuScreen();
         levelManager.LoadMainMenu(); 
+    }
+
+    private void MainMenuStart() 
+    {
+        gameStateMachine.EnterMainMenu();
+        screenManager.ActivateMainMenuScreen();
     }
 
     public void ToStartGame()

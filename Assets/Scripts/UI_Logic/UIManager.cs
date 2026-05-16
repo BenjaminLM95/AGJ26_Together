@@ -9,8 +9,8 @@ public class UIManager : Singleton<UIManager>
     public GameObject gameplayScreen;
     public GameObject pauseScreen;
     public GameObject settingScreen; 
-    //public GameObject winScreen;
-    //public GameObject loseScreen;
+    public GameObject winScreen;
+    public GameObject loseScreen;
 
     #endregion
 
@@ -37,6 +37,16 @@ public class UIManager : Singleton<UIManager>
     public void ActivateSettingScreen() 
     {
         ActivateScreen(settingScreen);
+    }
+
+    public void ActivateGameWinScreen() 
+    {
+        ActivateScreen(winScreen);
+    }
+
+    public void ActivateGameLoseScreen() 
+    {
+        ActivateScreen(loseScreen);
     }
 
     private void ActivateScreen(GameObject screen)

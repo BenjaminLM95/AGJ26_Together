@@ -1,16 +1,15 @@
 using UnityEngine;
 
-public class PauseState : IGameState
+public class WinGameState : IGameState
 {
     public void Enter()
     {
-        Debug.Log("Pause Enter");
-        Time.timeScale = 0f; 
+        throw new System.NotImplementedException();
     }
 
     public void Exit()
     {
-        Debug.Log("Pause Exit"); 
+        throw new System.NotImplementedException();
     }
 
     public void FixedUpdateState()
