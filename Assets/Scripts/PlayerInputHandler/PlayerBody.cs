@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class PlayerBody : MonoBehaviour
 {
-    private PlayerState currentState;
-    private Rigidbody rb;
+    [SerializeField] private PlayerStateEvent onStateChanged;
+
+    [SerializeField] private PlayerState currentState;
 
     // I put this here just because I wasn't sure if were using capsule or sphere collider
     [Header("Capsule Size for ball mode and full body mode")]
@@ -17,12 +18,19 @@ public class PlayerBody : MonoBehaviour
 
     private Animator animator;
 
+    private void OnEnable()
+    {
+        onStateChanged.gameEvent += SetAnimationState;
+    }
+    private void OnDisable()
+    {
+        onStateChanged.gameEvent -= SetAnimationState;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        playerColider = GetComponent<CapsuleCollider>();
         SwitchState(PlayerState.Head);
     }
 
@@ -47,66 +55,25 @@ public class PlayerBody : MonoBehaviour
             SwitchState(PlayerState.FullBody);
         }
     }
-
-    /// <summary>
-    /// Checks if the player has the body parts to move
-    /// </summary>
-    /// <returns></returns>
-    public bool CanMove()
-    {
-        return currentState == PlayerState.Head ||
-               currentState == PlayerState.CrystalLeg ||
-               currentState == PlayerState.StretchyArm ||
-               currentState == PlayerState.FullBody;
-    }
-    /// <summary>
-    /// Checks if the player has the body parts to jump
-    /// </summary>
-    /// <returns></returns>
-    public bool CanJump()
-    {
-        return currentState == PlayerState.JumpLeg ||
-               currentState == PlayerState.CrystalLeg ||
-               currentState == PlayerState.StretchyArm ||
-               currentState == PlayerState.FullBody;
-    }
-    /// <summary>
-    /// Checks if the player is a head only state for movement/controls 
-    /// </summary>
-    /// <returns></returns>
-    public bool CanRoll()
-    {
-        return currentState == PlayerState.Head;
-    }
+    
     /// <summary>
     /// Handles switching states logic
     /// </summary>
     /// <param name="newState"></param>
     public void SwitchState(PlayerState newState)
     {
-        if (currentState == newState) return;
         currentState = newState;
-        Debug.Log($" Current state {currentState}");
-
-        if (CanRoll())
-        {
-            SetBallMode();
-        }
-        else
-        {
-            SetWalkMode();
-        }
-        SetAnimationState();
+        onStateChanged.RaiseEvent(currentState);
     }
 
-    private void SetAnimationState()
+    private void SetAnimationState(PlayerState newState)
     {
         animator.SetBool("isHeadState", false);
         animator.SetBool("isJumpLegState", false);
         animator.SetBool("isCrystalLegState", false);
         animator.SetBool("isStrechyArmState", false);
         animator.SetBool("isFullBodyState", false);
-        switch (currentState)
+        switch (newState)
         {
             case PlayerState.Head:
                 animator.SetBool("isHeadState", true);
@@ -125,45 +92,6 @@ public class PlayerBody : MonoBehaviour
                 animator.SetBool("isFullBodyState", true);
                 break;
 
-        }
-    }
-    /// <summary>
-    /// Sets Rigidbody to un-freeze on z to roll and makes the collider into a sphere
-    /// </summary>
-    private void SetBallMode()
-    {
-        if (rb != null)
-        {
-            // un-freezing z rotation for rolling ball effect
-            rb.constraints = RigidbodyConstraints.None
-                | RigidbodyConstraints.FreezePositionZ
-                | RigidbodyConstraints.FreezeRotationX
-                | RigidbodyConstraints.FreezeRotationY;
-        }
-        if (playerColider != null)
-        { 
-            playerColider.radius = sphereSize;
-            playerColider.height = sphereSize;
-        }
-
-    }
-
-    /// <summary>
-    /// Sets Rigidbody to freeze on rotation and makes the collider into a capsule
-    /// </summary>
-    private void SetWalkMode()
-    {
-        // Setting them back up to standing rotation
-        transform.rotation = Quaternion.identity;
-        if (rb != null)
-        {
-            // Freezing rotation to stand up straight
-            rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
-        }
-        if (playerColider != null)
-        {
-            playerColider.radius = bodyRadius;
-            playerColider.height = bodyHeight;
         }
     }
 

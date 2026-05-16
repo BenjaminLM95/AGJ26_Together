@@ -6,6 +6,7 @@ public class CameraFollowMe : MonoBehaviour
     [SerializeField] private float cameraMoveSpeed = 5f;
     [SerializeField] private float cameraDistance;
 
+    [SerializeField] private bool lockRotation;
     void Start()
     {
         mainCamera ??= Camera.main;
@@ -27,5 +28,7 @@ public class CameraFollowMe : MonoBehaviour
             targetPosition,
             cameraMoveSpeed * Time.deltaTime
         );
+
+        if ( lockRotation ) mainCamera.transform.rotation = Quaternion.identity;
     }
 }
