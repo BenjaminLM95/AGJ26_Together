@@ -15,10 +15,13 @@ public class PlayerBody : MonoBehaviour
     //Added this to make my life easier for testing
     [SerializeField] private bool quickStateSwitch;
 
+    private Animator animator;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
         playerColider = GetComponent<CapsuleCollider>();
         SwitchState(PlayerState.Head);
     }
@@ -81,7 +84,9 @@ public class PlayerBody : MonoBehaviour
     /// <param name="newState"></param>
     public void SwitchState(PlayerState newState)
     {
+        if (currentState == newState) return;
         currentState = newState;
+        Debug.Log($" Current state {currentState}");
 
         if (CanRoll())
         {
@@ -90,6 +95,36 @@ public class PlayerBody : MonoBehaviour
         else
         {
             SetWalkMode();
+        }
+        SetAnimationState();
+    }
+
+    private void SetAnimationState()
+    {
+        animator.SetBool("isHeadState", false);
+        animator.SetBool("isJumpLegState", false);
+        animator.SetBool("isCrystalLegState", false);
+        animator.SetBool("isStrechyArmState", false);
+        animator.SetBool("isFullBodyState", false);
+        switch (currentState)
+        {
+            case PlayerState.Head:
+                animator.SetBool("isHeadState", true);
+                break;
+                
+            case PlayerState.JumpLeg:
+                animator.SetBool("isJumpLegState", true);
+                break;
+            case PlayerState.CrystalLeg:
+                animator.SetBool("isCrystalLegState", true);
+                break;
+            case PlayerState.StretchyArm:
+                animator.SetBool("isStrechyArmState", true);
+                break;
+            case PlayerState.FullBody:
+                animator.SetBool("isFullBodyState", true);
+                break;
+
         }
     }
     /// <summary>
@@ -130,5 +165,10 @@ public class PlayerBody : MonoBehaviour
             playerColider.radius = bodyRadius;
             playerColider.height = bodyHeight;
         }
+    }
+
+    public PlayerState GetCurrentState()
+    {
+        return currentState;
     }
 }

@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,12 +100,12 @@ TextureImporter:
       name: PlayerCharacter_SpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 88
         y: 1792
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 81
+        height: 83
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -122,12 +122,12 @@ TextureImporter:
       name: PlayerCharacter_SpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 256
+        x: 343
         y: 1792
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 82
+        height: 84
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -144,12 +144,12 @@ TextureImporter:
       name: PlayerCharacter_SpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1792
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 594
+        y: 1775
+        width: 98
+        height: 188
+      alignment: 9
+      pivot: {x: 0.49487242, y: 0.3797114}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -166,12 +166,12 @@ TextureImporter:
       name: PlayerCharacter_SpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 768
+        x: 847
         y: 1792
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 96
+        height: 168
+      alignment: 9
+      pivot: {x: 0.5418784, y: 0.35342625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -188,12 +188,12 @@ TextureImporter:
       name: PlayerCharacter_SpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 1092
         y: 1792
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 96
+        height: 236
+      alignment: 9
+      pivot: {x: 0.5209389, y: 0.53194106}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -210,12 +210,12 @@ TextureImporter:
       name: PlayerCharacter_SpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 1280
+        x: 1345
         y: 1792
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 103
+        height: 243
+      alignment: 9
+      pivot: {x: 0.5146366, y: 0.5351567}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -232,12 +232,12 @@ TextureImporter:
       name: PlayerCharacter_SpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 1536
+        x: 1611
         y: 1792
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 110
+        height: 236
+      alignment: 9
+      pivot: {x: 0.449747, y: 0.5447171}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -254,12 +254,12 @@ TextureImporter:
       name: PlayerCharacter_SpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 1792
+        x: 1858
         y: 1792
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 123
+        height: 243
+      alignment: 9
+      pivot: {x: 0.47957158, y: 0.53929305}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -276,12 +276,12 @@ TextureImporter:
       name: PlayerCharacter_SpriteSheet_8
       rect:
         serializedVersion: 2
-        x: 0
+        x: 37
         y: 1536
-        width: 256
-        height: 256
+        width: 163
+        height: 254
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -298,12 +298,12 @@ TextureImporter:
       name: PlayerCharacter_SpriteSheet_9
       rect:
         serializedVersion: 2
-        x: 256
+        x: 287
         y: 1536
-        width: 256
+        width: 173
         height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.513741}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -320,12 +320,12 @@ TextureImporter:
       name: PlayerCharacter_SpriteSheet_10
       rect:
         serializedVersion: 2
-        x: 512
+        x: 543
         y: 1536
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 191
+        height: 239
+      alignment: 9
+      pivot: {x: 0.4578934, y: 0.5405136}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -342,12 +342,12 @@ TextureImporter:
       name: PlayerCharacter_SpriteSheet_11
       rect:
         serializedVersion: 2
-        x: 768
-        y: 1536
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 791
+        y: 1537
+        width: 191
+        height: 255
+      alignment: 9
+      pivot: {x: 0.49473786, y: 0.5216778}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -378,6 +378,7 @@ TextureImporter:
       PlayerCharacter_SpriteSheet_1: 1215470141
       PlayerCharacter_SpriteSheet_10: -1113842112
       PlayerCharacter_SpriteSheet_11: 2105150055
+      PlayerCharacter_SpriteSheet_12: 1022202882
       PlayerCharacter_SpriteSheet_2: 495890139
       PlayerCharacter_SpriteSheet_3: -1752732087
       PlayerCharacter_SpriteSheet_4: -1506807725

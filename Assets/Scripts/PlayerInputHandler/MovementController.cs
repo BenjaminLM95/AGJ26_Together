@@ -16,9 +16,12 @@ public class MovementController : MonoBehaviour
     private Vector2 moveDirection;
     private Vector2 xMovement;
 
+    private PlayerState currentState;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        isJumpOnCooldown = false;
         rb = GetComponent<Rigidbody>();
         body ??= GetComponent<PlayerBody>();
     }
@@ -38,6 +41,7 @@ public class MovementController : MonoBehaviour
     {
         if (body == null) return;
         if (!body.CanMove()) return;
+
 
         if (body.CanRoll())
         {
@@ -71,7 +75,7 @@ public class MovementController : MonoBehaviour
         if (isJumpOnCooldown) return; // Checks if jump is on cooldown
         if (!body.CanJump()) return; // Checks if the player has the body parts to jump
         if (!IsGrounded()) return; // Checks if the player is grounded
-
+        
         Jump();
         StartCoroutine(JumpCooldown(jumpCooldownTime));
     }
