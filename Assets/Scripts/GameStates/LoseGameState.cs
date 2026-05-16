@@ -10,6 +10,7 @@ public class LoseGameState : IGameState
 
     public void Exit()
     {
+        LifeForceHandler.Instance.ResetLifeForce(); 
         Debug.Log("Try again, eh?"); 
     }
 

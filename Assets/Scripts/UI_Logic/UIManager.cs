@@ -64,6 +64,8 @@ public class UIManager : Singleton<UIManager>
         settingScreen.SetActive(false);
         pauseScreen.SetActive(false);
         gameplayScreen.SetActive(false);
+        winScreen.SetActive(false);
+        loseScreen.SetActive(false);
     }
 
 }
