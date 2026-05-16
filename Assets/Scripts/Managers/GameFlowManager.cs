@@ -65,6 +65,18 @@ public class GameFlowManager : Singleton<GameFlowManager>
         screenManager.ActivateSettingScreen();
     }
 
+    public void ToWinGame() 
+    {
+        gameStateMachine.EnterWinGameState();
+        screenManager.ActivateGameWinScreen();
+    }
+
+    public void ToLoseGame() 
+    {
+        gameStateMachine.EnterLoseGameState();
+        screenManager.ActivateGameLoseScreen(); 
+    }
+
     public void GoBack() 
     {
         if (gameStateMachine.GetPreviousState() == null) return;

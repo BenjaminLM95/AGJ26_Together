@@ -29,6 +29,7 @@ public class TaskNotificationUI : Singleton<TaskNotificationUI>
 
     public void NotifyNewTask(string tName) 
     {
+        StopAllCoroutines();
         notificationPanelObj.gameObject.SetActive(true);
         notificationText.text = "New Task assigned!! \n" + tName;
         StartCoroutine(CloseNotification()); 
@@ -36,6 +37,7 @@ public class TaskNotificationUI : Singleton<TaskNotificationUI>
 
     public void NotifyCompleteTask(string tDes) 
     {
+        StopAllCoroutines(); 
         notificationPanelObj.gameObject.SetActive(true);
         notificationText.text = tDes + "\nTask Complete!!";
         StartCoroutine(CloseNotification());

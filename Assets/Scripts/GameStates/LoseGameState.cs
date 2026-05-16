@@ -4,12 +4,13 @@ public class LoseGameState : IGameState
 {
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("You lost");
+        Time.timeScale = 0f; 
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Try again, eh?"); 
     }
 
     public void FixedUpdateState()

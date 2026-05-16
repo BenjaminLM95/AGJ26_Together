@@ -9,8 +9,8 @@ public class GameStateMachine : Singleton<GameStateMachine>
     public PauseState pauseState = new PauseState();
     public SettingState settingState = new SettingState();
     public GameplayState gameplayState = new GameplayState();
-    //public LoseState loseState = new LoseState();
-    //public WinState winState = new WinState();
+    public LoseGameState loseState = new LoseGameState();
+    public WinGameState winState = new WinGameState();
 
 
     #endregion
@@ -45,6 +45,16 @@ public class GameStateMachine : Singleton<GameStateMachine>
     public void EnterSettingState() 
     {
         ChangeGameState(settingState);
+    }
+
+    public void EnterLoseGameState() 
+    {
+        ChangeGameState(loseState);
+    }
+
+    public void EnterWinGameState() 
+    {
+        ChangeGameState(winState);
     }
 
     public void ChangeGameState(IGameState gameState)

@@ -4,7 +4,8 @@ public class WinGameState : IGameState
 {
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        Time.timeScale = 0f;
+        Debug.Log("You won"); 
     }
 
     public void Exit()
