@@ -20,7 +20,9 @@ public class PlayerBody : Singleton<PlayerBody>
 
     private void OnEnable()
     {
-        onStateChanged.gameEvent += SetAnimationState;
+       onStateChanged.gameEvent += SetAnimationState;      
+        
+       SetAnimationState(currentState);        
     }
     private void OnDisable()
     {
@@ -73,6 +75,8 @@ public class PlayerBody : Singleton<PlayerBody>
 
     private void SetAnimationState(PlayerState newState)
     {
+        if (animator == null) return; 
+
         animator.SetBool("isHeadState", false);
         animator.SetBool("isJumpLegState", false);
         animator.SetBool("isCrystalLegState", false);

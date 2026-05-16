@@ -6,6 +6,7 @@ public class LifeForceHandler : Singleton<LifeForceHandler>
     [SerializeField] private Slider lifeForceBar; 
 
     [SerializeField] private float lifeForce;
+    [SerializeField] private float maxLifeForce;
 
     [SerializeField] private float lifeSpeed;
 
@@ -19,6 +20,7 @@ public class LifeForceHandler : Singleton<LifeForceHandler>
     {
         lifeForce = 100;
         lifeForceBar.value = lifeForce;
+        maxLifeForce = lifeForceBar.maxValue; 
     }
 
     // Update is called once per frame
@@ -34,6 +36,11 @@ public class LifeForceHandler : Singleton<LifeForceHandler>
             lifeForce -= Time.fixedDeltaTime * lifeSpeed; 
         }
 
+        if(lifeForce > maxLifeForce) 
+        {
+            lifeForce = maxLifeForce;
+        }
+
         lifeForceBar.value = lifeForce;
 
         if(lifeForce < 0) 
@@ -47,6 +54,11 @@ public class LifeForceHandler : Singleton<LifeForceHandler>
     {
         lifeForce += energy; 
         lifeForceBar.value = lifeForce;
+    }
+
+    public void ResetLifeForce() 
+    {
+        lifeForce = maxLifeForce; 
     }
 
 }
