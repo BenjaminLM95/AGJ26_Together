@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerBody : MonoBehaviour
+public class PlayerBody : Singleton<PlayerBody>
 {
     [SerializeField] private PlayerStateEvent onStateChanged;
 
@@ -25,6 +25,11 @@ public class PlayerBody : MonoBehaviour
     private void OnDisable()
     {
         onStateChanged.gameEvent -= SetAnimationState;
+    }
+
+    public override void Awake()
+    {
+        base.Awake();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

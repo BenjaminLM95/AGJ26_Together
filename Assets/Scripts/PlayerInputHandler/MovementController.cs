@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MovementController : MonoBehaviour
+public class MovementController : Singleton<MovementController>
 {
     [SerializeField] private PlayerStateEvent onStateChanged;
 
@@ -26,7 +26,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] private float bodyRadius;
     [SerializeField] private float bodyHeight;
     
-
+    
 
     private void OnEnable()
     {
@@ -45,8 +45,10 @@ public class MovementController : MonoBehaviour
     {
         currentState = newState;
     }
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake(); 
+
         rb ??= GetComponent<Rigidbody>();
         playerColider ??= GetComponent<CapsuleCollider>();
     }
