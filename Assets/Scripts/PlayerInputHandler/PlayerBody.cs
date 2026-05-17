@@ -20,9 +20,9 @@ public class PlayerBody : Singleton<PlayerBody>
 
     private void OnEnable()
     {
-       onStateChanged.gameEvent += SetAnimationState;      
-        
-       SetAnimationState(currentState);        
+       onStateChanged.gameEvent += SetAnimationState;
+
+        SwitchState(currentState);
     }
     private void OnDisable()
     {
@@ -107,5 +107,10 @@ public class PlayerBody : Singleton<PlayerBody>
     public PlayerState GetCurrentState()
     {
         return currentState;
+    }
+
+    public void RestartState() 
+    {
+        currentState = PlayerState.Head;        
     }
 }

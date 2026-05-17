@@ -1,7 +1,12 @@
 using UnityEngine;
+using System.Collections;
 
 public class GetFirstArmTask : TaskBase
 {
+    private bool openTask = false;
+
+    private bool taskOpened = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,10 +23,17 @@ public class GetFirstArmTask : TaskBase
 
     public override bool CheckForRequirements()
     {
-        if (GameStateMachine.Instance.currentGameStateString == "GameplayState")
+        if (GameStateMachine.Instance.currentGameStateString == "GameplayState" && !taskOpened)
         {
 
             if (PlayerBody.Instance.GetCurrentState() == PlayerState.CrystalLeg)
+            {
+                taskOpened = true;
+                StartCoroutine(OpenTask());
+                return false;
+            }
+
+            if (openTask)
             {
                 return true;
             }
@@ -43,6 +55,13 @@ public class GetFirstArmTask : TaskBase
         }
 
         return false;
+    }
+
+    private IEnumerator OpenTask()
+    {
+        yield return new WaitForSeconds(7f);
+
+        openTask = true;
     }
 
 }
