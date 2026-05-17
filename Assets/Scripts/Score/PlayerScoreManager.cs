@@ -34,9 +34,10 @@ public class PlayerScoreManager : Singleton<PlayerScoreManager>
         return spiritScore;
     }
 
-    public void RestarScore() 
+    public void RestartScore() 
     {
         spiritScore = 0;
+        scoreText.text = spiritScore.ToString(); 
     }
 
     public void UpdateScoreText() 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c45133e28546274b8d0cf05610cf8f8, type: 3}
   m_Name: Jump Leg Pickup Data
   m_EditorClassIdentifier: 
-  bodySprite: {fileID: -1506807725, guid: 72e58c527f509ac4c89e675b7406fc8f, type: 3}
+  bodySprite: {fileID: 1051442718, guid: 3573e89eec3c52d4695b1178886de5a4, type: 3}
   stateToGive: 1
   colliderRange: 0.5
   disableOnPickup: 1
