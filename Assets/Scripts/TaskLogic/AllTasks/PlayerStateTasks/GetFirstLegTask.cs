@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GetFirstLegTask : TaskBase
@@ -44,6 +45,6 @@ public class GetFirstLegTask : TaskBase
         }
 
         return false;
-    }
+    }    
 
 }
