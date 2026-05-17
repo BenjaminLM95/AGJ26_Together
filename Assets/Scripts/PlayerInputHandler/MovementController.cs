@@ -161,6 +161,7 @@ public class MovementController : Singleton<MovementController>
     public bool CanJump()
     {
         return currentState == PlayerState.JumpLeg ||
+               currentState == PlayerState.Head ||
                currentState == PlayerState.CrystalLeg ||
                currentState == PlayerState.StretchyArm ||
                currentState == PlayerState.FullBody;
