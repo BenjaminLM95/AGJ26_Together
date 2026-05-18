@@ -257,6 +257,7 @@ MonoBehaviour:
   onStateChanged: {fileID: 11400000, guid: 246505c746b8d4c44ab2722157ad10de, type: 2}
   currentState: 0
   quickStateSwitch: 1
+  savedState: 0
 --- !u!114 &-1206039405544619726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee1267c0e038d848b346a365d042e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastSpawnPoint: {x: 0, y: 0, z: 0}
+  lastSpawnPoint: {x: -2.97, y: 16.37, z: 0}
 --- !u!136 &152638209269935732
 CapsuleCollider:
   m_ObjectHideFlags: 0
