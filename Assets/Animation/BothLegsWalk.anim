@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: JumpLegWalk
+  m_Name: BothLegsWalk
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1952070848, guid: cc23c3fe277d20f488aca48e033b754f, type: 3}
+      value: {fileID: 1302884944, guid: 93bbf850d97b1774db9c87fba7870e5d, type: 3}
     - time: 0.16666667
-      value: {fileID: -313526221, guid: cc23c3fe277d20f488aca48e033b754f, type: 3}
+      value: {fileID: -1325667539, guid: 93bbf850d97b1774db9c87fba7870e5d, type: 3}
     - time: 0.33333334
-      value: {fileID: 1952070848, guid: cc23c3fe277d20f488aca48e033b754f, type: 3}
+      value: {fileID: 1302884944, guid: 93bbf850d97b1774db9c87fba7870e5d, type: 3}
     attribute: m_Sprite
     path: PlayerVisual
     classID: 212
@@ -48,9 +48,9 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1952070848, guid: cc23c3fe277d20f488aca48e033b754f, type: 3}
-    - {fileID: -313526221, guid: cc23c3fe277d20f488aca48e033b754f, type: 3}
-    - {fileID: 1952070848, guid: cc23c3fe277d20f488aca48e033b754f, type: 3}
+    - {fileID: 1302884944, guid: 93bbf850d97b1774db9c87fba7870e5d, type: 3}
+    - {fileID: -1325667539, guid: 93bbf850d97b1774db9c87fba7870e5d, type: 3}
+    - {fileID: 1302884944, guid: 93bbf850d97b1774db9c87fba7870e5d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

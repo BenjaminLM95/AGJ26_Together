@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: afc4231c1d7d6784c9fdefd50afeace8
+guid: cc23c3fe277d20f488aca48e033b754f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,89 +97,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerHeart_SpriteSheet_0
+      name: PlayerCharacter!legWalk_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
-        width: 256
-        height: 256
+        x: 794
+        y: 768
+        width: 56
+        height: 121
       alignment: 9
-      pivot: {x: 0.45819739, y: 0.50167227}
+      pivot: {x: 0.5838198, y: 0.5310341}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8b862b7b5ab7c24d915973ef1220476
-      internalID: -1118198361
+      spriteID: 787890a7e95fff44e8ccff9c071b4d0a
+      internalID: -313526221
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerHeart_SpriteSheet_1
+      name: PlayerCharacter!legWalk_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.45986962, y: 0.5117048}
+        x: 927
+        y: 772
+        width: 56
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99fb51a2cc9cfce4d9b8c2653bec9093
-      internalID: -871469189
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerHeart_SpriteSheet_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.4598695, y: 0.5183933}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc7ed1b6c9365ac4ca378fd44b035350
-      internalID: -1329888661
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerHeart_SpriteSheet_3
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.4665581, y: 0.50668854}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1bf2818eebe48ee41a951a7aab6c1b68
-      internalID: -183774796
+      spriteID: 540533b6b03d53041ba760397d4e9008
+      internalID: 1952070848
       vertices: []
       indices: 
       edges: []
@@ -188,7 +144,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 509c80ff61086574f89020ba9c8f5cc6
+    spriteID: 2ad55ba6947a3ed44ac154249ae20837
     internalID: 0
     vertices: []
     indices: 
@@ -198,10 +154,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PlayerHeart_SpriteSheet_0: -1118198361
-      PlayerHeart_SpriteSheet_1: -871469189
-      PlayerHeart_SpriteSheet_2: -1329888661
-      PlayerHeart_SpriteSheet_3: -183774796
+      PlayerCharacter!legWalk_0: -1274978693
+      PlayerCharacter!legWalk_1: -313526221
+      PlayerCharacter!legWalk_2: 1952070848
+      PlayerCharacter!legWalk_3: 109665178
+      PlayerCharacter!legWalk_4: -1344693012
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
