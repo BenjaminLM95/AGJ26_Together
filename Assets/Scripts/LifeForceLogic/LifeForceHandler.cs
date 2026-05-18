@@ -130,4 +130,9 @@ public class LifeForceHandler : Singleton<LifeForceHandler>
         isUpdatingBar = false; 
     } 
 
+    public void ChangingLifeSpeed(float newLifeSpeed) 
+    {
+        lifeSpeed = newLifeSpeed;
+    }
+
 }

@@ -8229,7 +8229,7 @@ MonoBehaviour:
   lifeForceBar: {fileID: 2111982645}
   lifeForce: 1
   maxLifeForce: 0
-  lifeSpeed: 1
+  lifeSpeed: 3
   fillImage: {fileID: 863620515}
   perilValue: 33
   perilSpeed: 5
