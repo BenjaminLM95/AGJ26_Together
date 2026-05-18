@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class VolumesSlides : Singleton<VolumesSlides>, IPointerDownHandler, IPointerUpHandler
+public class VolumesSlides : Singleton<VolumesSlides>
 {
     public Slider musicSlider;
     public Slider soundSlider;
@@ -53,20 +53,5 @@ public class VolumesSlides : Singleton<VolumesSlides>, IPointerDownHandler, IPoi
     {
         SFXManager.Instance.PlaySoundFXClip("PH_TaskCompleted");
     }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        changeSFXVolume = true;
-        Debug.Log("PointDown");
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        Debug.Log("PointUp");
-        if (changeSFXVolume)
-        {
-            SFXManager.Instance.PlaySoundFXClip("PH_TaskCompleted");             
-            changeSFXVolume = false;
-        }
-    }
+   
 }
