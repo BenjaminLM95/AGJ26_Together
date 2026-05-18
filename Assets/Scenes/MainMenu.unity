@@ -1162,7 +1162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1206039405544619726, guid: 09c63d27180f5d94fb000425d9f1581e, type: 3}
       propertyPath: lastSpawnPoint.z
-      value: 0.4022434
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 871114028815583720, guid: 09c63d27180f5d94fb000425d9f1581e, type: 3}
       propertyPath: m_LocalPosition.x
