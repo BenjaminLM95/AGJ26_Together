@@ -207,7 +207,7 @@ MonoBehaviour:
   playerColider: {fileID: 152638209269935732}
   moveSpeed: 2
   jumpCooldownTime: 1
-  jumpForce: 2.5
+  jumpForce: 3
   isJumpOnCooldown: 0
   groundCheckDistance: 0.8
   catchPlayerHeight: -3
@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee1267c0e038d848b346a365d042e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastSpawnPoint: {x: 0, y: 0, z: 0}
 --- !u!136 &152638209269935732
 CapsuleCollider:
   m_ObjectHideFlags: 0
