@@ -25,6 +25,8 @@ public class GoalTrigger : MonoBehaviour
                 isInGoal = true;
                 
             }
+
+            GameFlowManager.Instance.ToWinGame();
         }
     }
 }
