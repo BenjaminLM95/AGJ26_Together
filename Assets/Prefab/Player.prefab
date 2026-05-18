@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastSpawnPoint: {x: -2.97, y: 16.37, z: 0}
+  _camara: {fileID: 2248355449190350820}
 --- !u!136 &152638209269935732
 CapsuleCollider:
   m_ObjectHideFlags: 0
