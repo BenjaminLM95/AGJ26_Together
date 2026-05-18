@@ -29,8 +29,16 @@ public class CheckPointLogic : MonoBehaviour
             //PlayerBody.Instance.SavePlayerState();
             PlayerSpawnHandler.Instance.GetNewSpawnPoint(transform.position); 
             this.gameObject.SetActive(false); 
+
+            SavePlayerState(other.GetComponent<PlayerBody>());
             
         }
+    }
+
+    private void SavePlayerState(PlayerBody playerBody)
+    {
+        playerBody.SavePlayerState();
+        Debug.Log("Player State saved");
     }
         
 }

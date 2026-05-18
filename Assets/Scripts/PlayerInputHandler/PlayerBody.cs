@@ -18,14 +18,14 @@ public class PlayerBody : MonoBehaviour
 
     private void OnEnable()
     {
-       onStateChanged.gameEvent += SetAnimationState;
+        onStateChanged.gameEvent += SetAnimationState;
 
         SwitchState(savedState);
     }
     private void OnDisable()
     {
         onStateChanged.gameEvent -= SetAnimationState;
-        SavePlayerState();
+        //SavePlayerState();
     }
 
     public void Awake()
@@ -37,8 +37,9 @@ public class PlayerBody : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        SwitchState(PlayerState.Head);
+        SwitchState(savedState);
         movementController = GetComponent<MovementController>();
+        Debug.Log("Im back");
     }
 
     private void Update()
