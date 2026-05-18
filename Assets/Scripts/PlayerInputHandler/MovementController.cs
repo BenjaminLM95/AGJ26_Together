@@ -14,6 +14,7 @@ public class MovementController : Singleton<MovementController>
     [SerializeField] private bool isJumpOnCooldown;
     [Range(0f, 2f)]
     [SerializeField] private float groundCheckDistance;
+    [SerializeField] private float catchPlayerHeight;
 
     private Vector2 moveDirection;
     private Vector2 xMovement;
@@ -66,6 +67,14 @@ public class MovementController : Singleton<MovementController>
     private void FixedUpdate()
     {
         HandleMovementState();
+    }
+
+    private void CatchPlayer()
+    {
+        if (transform.position.y <= catchPlayerHeight)
+        {
+            // Respawn Point needed
+        }
     }
 
     private void HandleMovementState()
@@ -165,14 +174,17 @@ public class MovementController : Singleton<MovementController>
                currentState == PlayerState.StretchyArm ||
                currentState == PlayerState.FullBody;
     }
-    /// <summary>
-    /// Checks if raycast hits for ground check
-    /// </summary>
-    /// <returns></returns>
     private bool IsGrounded()
     {
         Vector3 rayOrigin = playerColider.bounds.center;
-        return Physics.Raycast(rayOrigin, Vector3.down, groundCheckDistance);
+
+        bool middleRay = Physics.Raycast(rayOrigin, Vector3.down, groundCheckDistance);
+
+        bool leftAngleRay = Physics.Raycast(rayOrigin,(Vector3.down + Vector3.left).normalized,groundCheckDistance);
+
+        bool rightAngleRay = Physics.Raycast(rayOrigin,(Vector3.down + Vector3.right).normalized,groundCheckDistance);
+
+        return middleRay || leftAngleRay || rightAngleRay;
     }
     #endregion
 

@@ -207,13 +207,14 @@ MonoBehaviour:
   playerColider: {fileID: 152638209269935732}
   moveSpeed: 2
   jumpCooldownTime: 1
-  jumpForce: 5
+  jumpForce: 2.5
   isJumpOnCooldown: 0
   groundCheckDistance: 0.8
+  catchPlayerHeight: -3
   currentState: 0
   sphereSize: 0.19
-  bodyRadius: 0.5
-  bodyHeight: 1.4
+  bodyRadius: 0.25
+  bodyHeight: 1.16
 --- !u!54 &5817662863672836171
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -222,7 +223,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5342742289463709994}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.6
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -255,9 +256,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onStateChanged: {fileID: 11400000, guid: 246505c746b8d4c44ab2722157ad10de, type: 2}
   currentState: 0
-  sphereSize: 0.19
-  bodyRadius: 0.5
-  bodyHeight: 1.4
   quickStateSwitch: 1
 --- !u!114 &-1206039405544619726
 MonoBehaviour:
