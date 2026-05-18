@@ -261,8 +261,8 @@ public class MovementController : Singleton<MovementController>
         rayOrigin + Vector3.down * groundCheckDistance);
     }
 
-    public void MovingToSpawnPoint() 
+    public void ResetJumpCooldown() 
     {
-
+        isJumpOnCooldown = false; 
     }
 }
