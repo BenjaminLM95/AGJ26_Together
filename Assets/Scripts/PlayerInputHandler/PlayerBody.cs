@@ -25,6 +25,7 @@ public class PlayerBody : MonoBehaviour
     private void OnDisable()
     {
         onStateChanged.gameEvent -= SetAnimationState;
+        SavePlayerState();
     }
 
     public void Awake()
