@@ -8,7 +8,7 @@ public class SFXManager : Singleton<SFXManager>
 
     public AudioMixer audioMixer; // Reference to the AudioMixer for volume control
 
-    public float sfxVolume = 1;
+    public float sfxVolume = 0.5f;
 
     public AudioRepertoire sfxRepertoire;
 

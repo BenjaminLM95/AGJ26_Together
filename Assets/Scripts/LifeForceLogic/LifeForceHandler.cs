@@ -21,6 +21,8 @@ public class LifeForceHandler : Singleton<LifeForceHandler>
 
     [SerializeField] private Color perilColor;
 
+    [SerializeField] private Color drainingColor; 
+
     [SerializeField] private float colorSpeed;
 
     [SerializeField] private GameObject lifeForceBarObj;
@@ -146,6 +148,18 @@ public class LifeForceHandler : Singleton<LifeForceHandler>
     public float GetCurrentLifeSpeed() 
     {
         return currentLifeSpeed;
+    }
+
+    public void ChangingToDrainingBarColor() 
+    {
+        fillImage.color = drainingColor;
+        isUpdatingBar = true;
+    }
+
+    public void ReturnToNormalBarColor() 
+    {
+        fillImage.color = barColor;
+        isUpdatingBar = false; 
     }
 
 }

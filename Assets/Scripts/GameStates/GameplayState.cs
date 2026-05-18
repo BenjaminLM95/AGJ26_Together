@@ -8,7 +8,7 @@ public class GameplayState : IGameState
 
         if(GameStateMachine.Instance.previousGameStateString != "PauseState") 
         {
-            AudioManager.Instance.PlayMusic("PH_Gameplay");
+            AudioManager.Instance.PlayMusic("GameplayBackgroundMusic");
         }
 
         Time.timeScale = 1.0f;

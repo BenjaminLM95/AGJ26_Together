@@ -11,6 +11,7 @@ public class ManaDraining : MonoBehaviour
             if (LifeForceHandler.Instance.GetCurrentLifeSpeed() != drainingLifeForce)
             {
                 LifeForceHandler.Instance.ChangingLifeSpeed(drainingLifeForce);
+                LifeForceHandler.Instance.ChangingToDrainingBarColor(); 
             }
         }
     }
@@ -19,7 +20,8 @@ public class ManaDraining : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player")) 
         {
-            LifeForceHandler.Instance.RestartLifeSpeed(); 
+            LifeForceHandler.Instance.RestartLifeSpeed();
+            LifeForceHandler.Instance.ReturnToNormalBarColor(); 
         }
     }
 }

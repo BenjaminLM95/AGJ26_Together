@@ -22,8 +22,8 @@ public class VolumesSlides : Singleton<VolumesSlides>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        musicSlider.value = 1f;
-        soundSlider.value = 1f;
+        musicSlider.value = 0.75f;
+        soundSlider.value = 0.5f;
         musicVolume = musicSlider.value;
         soundVolume = soundSlider.value;
         AudioManager.Instance.SetVolume(musicVolume); 
