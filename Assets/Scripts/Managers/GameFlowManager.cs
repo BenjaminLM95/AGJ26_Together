@@ -46,7 +46,7 @@ public class GameFlowManager : Singleton<GameFlowManager>
 
     public void ToGameplay()
     {
-        SFXManager.Instance.PlaySoundFXClip("PH_MouseClick");
+        SFXManager.Instance.PlaySoundFXClip("PH_MouseClick", 0.5f);
         gameStateMachine.EnterGameplayState();
         screenManager.ActivateGameplayScreen();        
     }
@@ -61,14 +61,14 @@ public class GameFlowManager : Singleton<GameFlowManager>
 
     public void ToPause()
     {
-        SFXManager.Instance.PlaySoundFXClip("PH_MouseClick"); 
+        SFXManager.Instance.PlaySoundFXClip("PH_MouseClick", 0.5f); 
         gameStateMachine.EnterPause();
         screenManager.ActivatePauseScreen();
     }
 
     public void ToSettings() 
     {
-        SFXManager.Instance.PlaySoundFXClip("PH_MouseClick");
+        SFXManager.Instance.PlaySoundFXClip("PH_MouseClick", 0.5f);
         gameStateMachine.EnterSettingState();
         screenManager.ActivateSettingScreen();
     }
@@ -89,8 +89,13 @@ public class GameFlowManager : Singleton<GameFlowManager>
     {
         if (gameStateMachine.GetPreviousState() == null) return;
 
-        SFXManager.Instance.PlaySoundFXClip("PH_MouseClick");
+        SFXManager.Instance.PlaySoundFXClip("PH_MouseClick", 0.5f);
         ChangeGameFlow(gameStateMachine.GetPreviousState()); 
+    }
+
+    public void QuitGame() 
+    {
+        Application.Quit();
     }
 
 

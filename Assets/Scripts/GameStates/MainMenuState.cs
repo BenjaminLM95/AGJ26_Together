@@ -6,7 +6,10 @@ public class MainMenuState : IGameState
     {
         Debug.Log("Main Menu Enter");
 
-        AudioManager.Instance.PlayMusic("PH_MainMenu");
+        if (!(GameStateMachine.Instance.previousGameStateString == "SettingState"))
+        {
+            AudioManager.Instance.PlayMusic("MainMenu_Music");
+        }
     }
 
     public void Exit()
