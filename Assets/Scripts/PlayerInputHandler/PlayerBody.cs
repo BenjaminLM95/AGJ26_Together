@@ -11,11 +11,14 @@ public class PlayerBody : Singleton<PlayerBody>
 
     private Animator animator;
 
+
+    [SerializeField] private PlayerState savedState;
+
     private void OnEnable()
     {
        onStateChanged.gameEvent += SetAnimationState;
 
-        SwitchState(currentState);
+        SwitchState(savedState);
     }
     private void OnDisable()
     {
@@ -37,6 +40,8 @@ public class PlayerBody : Singleton<PlayerBody>
     private void Update()
     {
         if (!quickStateSwitch) return;
+
+        
 
         if (Input.GetKey(KeyCode.Alpha1))
         {
@@ -62,6 +67,7 @@ public class PlayerBody : Singleton<PlayerBody>
     /// <param name="newState"></param>
     public void SwitchState(PlayerState newState)
     {
+        MovementController.Instance.StopPlayerMovement();
         currentState = newState;
         onStateChanged.RaiseEvent(currentState);
     }
@@ -100,6 +106,11 @@ public class PlayerBody : Singleton<PlayerBody>
     public PlayerState GetCurrentState()
     {
         return currentState;
+    }
+
+    public void SavePlayerState() 
+    {
+        savedState = currentState; 
     }
 
     public void RestartState() 

@@ -36,6 +36,14 @@ public class PlayerSpawnHandler : Singleton<PlayerSpawnHandler>
         }
     }
 
+    public void MoveToSpawnPoint() 
+    {
+        if (lastSpawnPoint != null)
+        {
+            transform.position = lastSpawnPoint;
+        }
+    }
+
     public void GetNewSpawnPoint(Vector3 newSpawnPoint) 
     {
         lastSpawnPoint = newSpawnPoint;
