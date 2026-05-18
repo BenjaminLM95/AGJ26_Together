@@ -24,7 +24,9 @@ public class PlayerSpawnHandler : Singleton<PlayerSpawnHandler>
     {
         if (lastSpawnPoint == null)
         {
+            Debug.Log("Spawnpoint not found"); 
             GameObject spawnPoint = GameObject.FindWithTag("SpawnPoint");
+            transform.position = spawnPoint.transform.position;
         }
 
 
