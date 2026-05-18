@@ -9,7 +9,8 @@ public class CollectableSpirit : MonoBehaviour
         {
             PlayerScoreManager.Instance.ObtainOneSpirit();
             SFXManager.Instance.PlaySoundFXClip("PH_WispWhoosh");
-            LifeForceHandler.Instance.ObtainLifeForce(20f); 
+            LifeForceHandler.Instance.ObtainLifeForce(20f);
+            LifeForceHandler.Instance.GetWispFeedback(); 
             this.gameObject.SetActive(false);
         }
     }

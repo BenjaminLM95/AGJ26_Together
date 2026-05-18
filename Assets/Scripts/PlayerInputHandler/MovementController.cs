@@ -24,8 +24,7 @@ public class MovementController : Singleton<MovementController>
     [Header("Capsule Size for ball mode and full body mode")]
     [SerializeField] private float sphereSize;
     [SerializeField] private float bodyRadius;
-    [SerializeField] private float bodyHeight;
-    
+    [SerializeField] private float bodyHeight;    
     
 
     private void OnEnable()
@@ -248,5 +247,10 @@ public class MovementController : Singleton<MovementController>
         Gizmos.DrawLine(
         rayOrigin,
         rayOrigin + Vector3.down * groundCheckDistance);
+    }
+
+    public void MovingToSpawnPoint() 
+    {
+
     }
 }
