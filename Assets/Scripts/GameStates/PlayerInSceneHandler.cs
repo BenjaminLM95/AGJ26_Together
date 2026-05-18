@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class PlayerInSceneHandler : MonoBehaviour
 {
-    [SerializeField] GameObject playerObj;
+    [SerializeField] GameObject playerPrefab; 
+
+    [SerializeField] GameObject playerObj = null;
 
     private IGameState _currentState;
 
@@ -23,12 +25,25 @@ public class PlayerInSceneHandler : MonoBehaviour
 
             if(_currentState is GameplayState) 
             {
-                playerObj.SetActive(true);
+                if(playerObj == null) 
+                {
+                    Instantiate(playerPrefab, new Vector3(-9, 10, 0), Quaternion.identity);
+                }
+                else 
+                {
+                    playerObj.SetActive(true);
+
+                }
+                    
                 secondCamera.SetActive(false);
             }
             else 
             {
-                playerObj.SetActive(false);
+                if (playerObj != null)
+                {
+                    playerObj.SetActive(false);
+                }
+
                 secondCamera.SetActive(true);
             }
         }

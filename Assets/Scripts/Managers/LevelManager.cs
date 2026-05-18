@@ -17,4 +17,11 @@ public class LevelManager : Singleton<LevelManager>
     {
         SceneManager.LoadScene(1);
     }
+
+    public void LoadCurrentScene() 
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        SceneManager.LoadScene(currentSceneIndex); 
+    }
 }
