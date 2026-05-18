@@ -25,7 +25,9 @@ public class MovementController : Singleton<MovementController>
     [Header("Capsule Size for ball mode and full body mode")]
     [SerializeField] private float sphereSize;
     [SerializeField] private float bodyRadius;
-    [SerializeField] private float bodyHeight;    
+    [SerializeField] private float bodyHeight;
+
+    
     
 
     private void OnEnable()
@@ -69,12 +71,9 @@ public class MovementController : Singleton<MovementController>
         HandleMovementState();
     }
 
-    private void CatchPlayer()
+    public void StopPlayerMovement() 
     {
-        if (transform.position.y <= catchPlayerHeight)
-        {
-            // Respawn Point needed
-        }
+        rb.linearVelocity = Vector3.zero;
     }
 
     private void HandleMovementState()
@@ -265,4 +264,5 @@ public class MovementController : Singleton<MovementController>
     {
         isJumpOnCooldown = false; 
     }
+        
 }

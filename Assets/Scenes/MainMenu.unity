@@ -1206,7 +1206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2983097317995945958, guid: 09c63d27180f5d94fb000425d9f1581e, type: 3}
       propertyPath: cameraDistance
-      value: -4
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 5342742289463709994, guid: 09c63d27180f5d94fb000425d9f1581e, type: 3}
       propertyPath: m_Name
@@ -4346,7 +4346,7 @@ PrefabInstance:
       objectReference: {fileID: 901900670}
     - target: {fileID: 5894139022922045849, guid: 0a0449af688b2094f86a98cfe2024603, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToStartGame
+      value: RestartGame
       objectReference: {fileID: 0}
     - target: {fileID: 6032257981421505809, guid: 0a0449af688b2094f86a98cfe2024603, type: 3}
       propertyPath: m_text

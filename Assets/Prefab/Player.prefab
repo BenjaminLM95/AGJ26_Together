@@ -417,5 +417,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 3138542503099547533}
   cameraMoveSpeed: 7
-  cameraDistance: -2.5
+  cameraDistance: -8
   lockRotation: 1

@@ -51,6 +51,13 @@ public class GameFlowManager : Singleton<GameFlowManager>
         screenManager.ActivateGameplayScreen();        
     }
 
+    public void RestartGame() 
+    {
+        gameStateMachine.EnterGameplayState();
+        screenManager.ActivateGameplayScreen();
+        levelManager.LoadCurrentScene(); 
+    }
+
     public void ToPause()
     {
         SFXManager.Instance.PlaySoundFXClip("PH_MouseClick"); 
