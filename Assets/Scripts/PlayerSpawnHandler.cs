@@ -3,8 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerSpawnHandler : Singleton<PlayerSpawnHandler>
 {
-    [SerializeField] Vector3 lastSpawnPoint; 
+    [SerializeField] Vector3 lastSpawnPoint;
 
+    [SerializeField] GameObject _camara; 
     public override void Awake()
     {
         base.Awake();
@@ -18,6 +19,17 @@ public class PlayerSpawnHandler : Singleton<PlayerSpawnHandler>
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void Update()
+    {
+        if (!(GameStateMachine.Instance.currentGameStateString == "GameplayState"))
+        {
+            if(_camara != null) 
+            {
+                _camara.SetActive(false);
+            }
+        }
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
