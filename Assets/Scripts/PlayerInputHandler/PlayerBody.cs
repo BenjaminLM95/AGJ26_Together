@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerBody : Singleton<PlayerBody>
+public class PlayerBody : MonoBehaviour
 {
     [SerializeField] private PlayerStateEvent onStateChanged;
 
@@ -14,27 +14,32 @@ public class PlayerBody : Singleton<PlayerBody>
 
     [SerializeField] private PlayerState savedState;
 
+    private MovementController movementController;
+
     private void OnEnable()
     {
-       onStateChanged.gameEvent += SetAnimationState;
+        onStateChanged.gameEvent += SetAnimationState;
 
         SwitchState(savedState);
     }
     private void OnDisable()
     {
         onStateChanged.gameEvent -= SetAnimationState;
+        //SavePlayerState();
     }
 
-    public override void Awake()
+    public void Awake()
     {
-        base.Awake();
+        //base.Awake();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animator = GetComponent<Animator>();
-        SwitchState(PlayerState.Head);
+        SwitchState(savedState);
+        movementController = GetComponent<MovementController>();
+        Debug.Log("Im back");
     }
 
     private void Update()
@@ -67,7 +72,11 @@ public class PlayerBody : Singleton<PlayerBody>
     /// <param name="newState"></param>
     public void SwitchState(PlayerState newState)
     {
-        MovementController.Instance.StopPlayerMovement();
+        if (movementController != null) 
+        { 
+            movementController.StopPlayerMovement();
+        }
+        
         currentState = newState;
         onStateChanged.RaiseEvent(currentState);
     }

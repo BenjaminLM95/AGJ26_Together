@@ -4,9 +4,9 @@ public class PlayerInSceneHandler : MonoBehaviour
 {
     [SerializeField] GameObject playerPrefab; 
 
-    [SerializeField] GameObject playerObj = null;
+    [SerializeField] GameObject playerObj;
 
-    private IGameState _currentState;
+    [SerializeField] private IGameState _currentState;
 
     [SerializeField] GameObject secondCamera; 
 
@@ -23,11 +23,11 @@ public class PlayerInSceneHandler : MonoBehaviour
         {
             UpdateGameState(); 
 
-            if(_currentState is GameplayState) 
+            if(GameStateMachine.Instance.currentGameStateString == "GameplayState") 
             {
                 if(playerObj == null) 
                 {
-                    Instantiate(playerPrefab, new Vector3(-9, 10, 0), Quaternion.identity);
+                    playerObj = Instantiate(playerPrefab, new Vector3(-9, 10, 0), Quaternion.identity);
                 }
                 else 
                 {
@@ -46,6 +46,8 @@ public class PlayerInSceneHandler : MonoBehaviour
 
                 secondCamera.SetActive(true);
             }
+
+            
         }
 
         

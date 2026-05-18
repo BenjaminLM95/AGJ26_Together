@@ -26,7 +26,7 @@ public class GetSecondLegTask : TaskBase
         if (GameStateMachine.Instance.currentGameStateString == "GameplayState")
         {
 
-            if (PlayerBody.Instance.GetCurrentState() == PlayerState.JumpLeg && !taskOpened)
+            if (currentState == PlayerState.JumpLeg && !taskOpened)
             {
                 taskOpened = true;
                 StartCoroutine(OpenTask()); 
@@ -47,8 +47,8 @@ public class GetSecondLegTask : TaskBase
         if (GameStateMachine.Instance.currentGameStateString == "GameplayState")
         {
 
-            if (PlayerBody.Instance.GetCurrentState() == PlayerState.CrystalLeg || PlayerBody.Instance.GetCurrentState() == PlayerState.StretchyArm ||
-            PlayerBody.Instance.GetCurrentState() == PlayerState.FullBody)
+            if (currentState == PlayerState.CrystalLeg || currentState == PlayerState.StretchyArm ||
+            currentState == PlayerState.FullBody)
             {
                 return true;
             }

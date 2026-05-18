@@ -12,7 +12,23 @@ public class TaskBase : MonoBehaviour, ITaskLogic
 
     public string taskDescription;
 
+    public PlayerState currentState;
+    public PlayerStateEvent onStateChanged;
 
+    private void GetCurrentState(PlayerState newState)
+    {
+        currentState = newState;
+    }
+
+    private void OnEnable()
+    {
+        onStateChanged.gameEvent += GetCurrentState;
+    }
+
+    private void OnDisable()
+    {
+        onStateChanged.gameEvent -= GetCurrentState;
+    }
     private void Start()
     {
         isUnassigned = true;
