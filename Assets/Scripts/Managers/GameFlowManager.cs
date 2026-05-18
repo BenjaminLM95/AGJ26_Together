@@ -53,9 +53,10 @@ public class GameFlowManager : Singleton<GameFlowManager>
 
     public void RestartGame() 
     {
+        PlayerSpawnHandler.Instance.MoveToSpawnPoint(); 
         gameStateMachine.EnterGameplayState();
         screenManager.ActivateGameplayScreen();
-        levelManager.LoadCurrentScene(); 
+        //levelManager.LoadCurrentScene(); 
     }
 
     public void ToPause()
