@@ -13,7 +13,7 @@ public class LoseGameState : IGameState
         LifeForceHandler.Instance.ResetLifeForce();
         //PlayerBody.Instance.RestartState();
         PlayerScoreManager.Instance.RestartScore();
-        MovementController.Instance.ResetJumpCooldown(); 
+        //MovementController.Instance.ResetJumpCooldown(); 
         Debug.Log("Try again, eh?"); 
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MovementController : Singleton<MovementController>
+public class MovementController : MonoBehaviour
 {
     [SerializeField] private PlayerStateEvent onStateChanged;
 
@@ -35,29 +35,31 @@ public class MovementController : Singleton<MovementController>
         if (onStateChanged == null) return;
         onStateChanged.gameEvent += GetCurrentState;
         onStateChanged.gameEvent += SetStateMode;
+        ResetJumpCooldown();
     }
     private void OnDisable()
     {
         if (onStateChanged == null) return;
         onStateChanged.gameEvent -= GetCurrentState;
         onStateChanged.gameEvent -= SetStateMode;
+        ResetJumpCooldown();
     }
 
     private void GetCurrentState(PlayerState newState)
     {
         currentState = newState;
     }
-    public override void Awake()
+    public void Awake()
     {
-        base.Awake(); 
+        //base.Awake(); 
 
-        rb ??= GetComponent<Rigidbody>();
-        playerColider ??= GetComponent<CapsuleCollider>();
+        
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        rb ??= GetComponent<Rigidbody>();
+        playerColider ??= GetComponent<CapsuleCollider>();
     }
 
     public void SetMove(Vector2 moveInput)

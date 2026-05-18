@@ -17,11 +17,13 @@ public class GetFirstLegTask : TaskBase
         
     }
 
+    
+
     public override bool CheckForRequirements() 
     {
         if (GameStateMachine.Instance.currentGameStateString == "GameplayState")
         {            
-            if (PlayerBody.Instance.GetCurrentState().ToString() == PlayerState.Head.ToString())
+            if (currentState == PlayerState.Head)
             {
                 return true;
             }
@@ -36,9 +38,9 @@ public class GetFirstLegTask : TaskBase
         if (GameStateMachine.Instance.currentGameStateString == "GameplayState")
         {
 
-            if (PlayerBody.Instance.GetCurrentState() == PlayerState.JumpLeg ||
-            PlayerBody.Instance.GetCurrentState() == PlayerState.CrystalLeg || PlayerBody.Instance.GetCurrentState() == PlayerState.StretchyArm ||
-            PlayerBody.Instance.GetCurrentState() == PlayerState.FullBody)
+            if (currentState == PlayerState.JumpLeg ||
+            currentState == PlayerState.CrystalLeg || currentState == PlayerState.StretchyArm ||
+            currentState == PlayerState.FullBody)
             {
                 return true;
             }

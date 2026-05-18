@@ -26,7 +26,7 @@ public class CheckPointLogic : MonoBehaviour
             if (spawnPoint == null) return;
 
             spawnPoint.transform.position = transform.position;
-            PlayerBody.Instance.SavePlayerState();
+            //PlayerBody.Instance.SavePlayerState();
             PlayerSpawnHandler.Instance.GetNewSpawnPoint(transform.position); 
             this.gameObject.SetActive(false); 
             

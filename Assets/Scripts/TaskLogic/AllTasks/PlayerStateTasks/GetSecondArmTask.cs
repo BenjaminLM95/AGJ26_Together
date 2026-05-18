@@ -26,7 +26,7 @@ public class GetSecondArmTask : TaskBase
         if (GameStateMachine.Instance.currentGameStateString == "GameplayState")
         {
 
-            if (PlayerBody.Instance.GetCurrentState() == PlayerState.StretchyArm && !taskOpened)
+            if (currentState == PlayerState.StretchyArm && !taskOpened)
             {
                 taskOpened = true;
                 StartCoroutine(OpenTask());
@@ -47,7 +47,7 @@ public class GetSecondArmTask : TaskBase
         if (GameStateMachine.Instance.currentGameStateString == "GameplayState")
         {
 
-            if (PlayerBody.Instance.GetCurrentState() == PlayerState.FullBody)
+            if (currentState == PlayerState.FullBody)
             {
                 return true;
             }

@@ -26,7 +26,7 @@ public class GetFirstArmTask : TaskBase
         if (GameStateMachine.Instance.currentGameStateString == "GameplayState" && !taskOpened)
         {
 
-            if (PlayerBody.Instance.GetCurrentState() == PlayerState.CrystalLeg)
+            if (currentState == PlayerState.CrystalLeg)
             {
                 taskOpened = true;
                 StartCoroutine(OpenTask());
@@ -47,8 +47,8 @@ public class GetFirstArmTask : TaskBase
         if (GameStateMachine.Instance.currentGameStateString == "GameplayState")
         {
 
-            if (PlayerBody.Instance.GetCurrentState() == PlayerState.StretchyArm ||
-            PlayerBody.Instance.GetCurrentState() == PlayerState.FullBody)
+            if (currentState == PlayerState.StretchyArm ||
+            currentState == PlayerState.FullBody)
             {
                 return true;
             }

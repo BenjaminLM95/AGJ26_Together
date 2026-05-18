@@ -2698,6 +2698,8 @@ MonoBehaviour:
   isFinished: 0
   taskName: 
   taskDescription: 
+  currentState: 0
+  onStateChanged: {fileID: 11400000, guid: 246505c746b8d4c44ab2722157ad10de, type: 2}
   goalTrigger: {fileID: 0}
 --- !u!1 &643736068
 GameObject:
@@ -2810,6 +2812,8 @@ MonoBehaviour:
   isFinished: 0
   taskName: 
   taskDescription: 
+  currentState: 0
+  onStateChanged: {fileID: 11400000, guid: 246505c746b8d4c44ab2722157ad10de, type: 2}
 --- !u!4 &686976561
 Transform:
   m_ObjectHideFlags: 0
@@ -2859,6 +2863,8 @@ MonoBehaviour:
   isFinished: 0
   taskName: 
   taskDescription: 
+  currentState: 0
+  onStateChanged: {fileID: 11400000, guid: 246505c746b8d4c44ab2722157ad10de, type: 2}
 --- !u!4 &691400633
 Transform:
   m_ObjectHideFlags: 0
@@ -3247,6 +3253,8 @@ MonoBehaviour:
   isFinished: 0
   taskName: 
   taskDescription: 
+  currentState: 0
+  onStateChanged: {fileID: 11400000, guid: 246505c746b8d4c44ab2722157ad10de, type: 2}
 --- !u!4 &814625119
 Transform:
   m_ObjectHideFlags: 0
@@ -4334,6 +4342,8 @@ MonoBehaviour:
   isFinished: 0
   taskName: 
   taskDescription: 
+  currentState: 0
+  onStateChanged: {fileID: 11400000, guid: 246505c746b8d4c44ab2722157ad10de, type: 2}
 --- !u!1 &1211749904
 GameObject:
   m_ObjectHideFlags: 0
@@ -6163,6 +6173,8 @@ MonoBehaviour:
   isFinished: 0
   taskName: 
   taskDescription: 
+  currentState: 0
+  onStateChanged: {fileID: 11400000, guid: 246505c746b8d4c44ab2722157ad10de, type: 2}
   playerScoreManager: {fileID: 0}
 --- !u!1 &1709681284
 GameObject:
