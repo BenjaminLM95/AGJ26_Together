@@ -6,13 +6,6 @@ public class PlayerBody : Singleton<PlayerBody>
 
     [SerializeField] private PlayerState currentState;
 
-    // I put this here just because I wasn't sure if were using capsule or sphere collider
-    [Header("Capsule Size for ball mode and full body mode")]
-    [SerializeField] private float sphereSize;
-    [SerializeField] private float bodyRadius;
-    [SerializeField] private float bodyHeight;
-    private CapsuleCollider playerColider;
-
     //Added this to make my life easier for testing
     [SerializeField] private bool quickStateSwitch;
 

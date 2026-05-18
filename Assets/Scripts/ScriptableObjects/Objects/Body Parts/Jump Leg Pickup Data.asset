@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodySprite: {fileID: 1051442718, guid: 3573e89eec3c52d4695b1178886de5a4, type: 3}
   stateToGive: 1
-  colliderRange: 0.5
+  colliderRange: 0.7
   disableOnPickup: 1
