@@ -6,6 +6,7 @@ public class InputHandler : MonoBehaviour, PlayerInput.IPlayerActions
     private PlayerInput input;
 
     [SerializeField] private MovementController movementController;
+    private Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -13,6 +14,7 @@ public class InputHandler : MonoBehaviour, PlayerInput.IPlayerActions
         input.Player.SetCallbacks(this);
         //input.Enable();
         movementController ??= GetComponent<MovementController>();
+        animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -30,7 +32,8 @@ public class InputHandler : MonoBehaviour, PlayerInput.IPlayerActions
 
         if (context.started)
         {
-            //Debug.Log($"{context.action.name} has started");
+            animator.SetBool("isWalking",true);
+
         }
 
         if (context.performed)
@@ -40,7 +43,7 @@ public class InputHandler : MonoBehaviour, PlayerInput.IPlayerActions
 
         if (context.canceled)
         {
-            //Debug.Log($"{context.action.name} has canceled");
+            animator.SetBool("isWalking", false);
         }
     }
 
