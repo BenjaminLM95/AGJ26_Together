@@ -36,8 +36,7 @@ public class CheckPointLogic : MonoBehaviour
 
             SavePlayerState(other.GetComponent<PlayerBody>());
             Vector3 newSpawnPoint = new Vector3(transform.position.x, transform.position.y, 0); 
-            spawnPoint.transform.position = newSpawnPoint;
-            PlayerBody.Instance.SavePlayerState();            
+            spawnPoint.transform.position = newSpawnPoint;      
             PlayerSpawnHandler.Instance.GetNewSpawnPoint(newSpawnPoint);
             SettingOn(); 
             
@@ -48,6 +47,7 @@ public class CheckPointLogic : MonoBehaviour
     {
         playerBody.SavePlayerState();
         Debug.Log("Player State saved");
+    }
     public void SettingOff() 
     {
         objOff.SetActive(true);

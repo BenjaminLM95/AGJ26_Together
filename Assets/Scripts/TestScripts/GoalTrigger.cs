@@ -23,6 +23,7 @@ public class GoalTrigger : MonoBehaviour
             if (!isInGoal)
             {
                 isInGoal = true;
+                
             }
         }
     }

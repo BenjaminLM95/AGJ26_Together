@@ -4,7 +4,7 @@ public class PlayerInSceneHandler : MonoBehaviour
 {
     [SerializeField] GameObject playerPrefab; 
 
-    [SerializeField] GameObject playerObj = null;
+    [SerializeField] GameObject playerObj;
 
     [SerializeField] private IGameState _currentState;
 
