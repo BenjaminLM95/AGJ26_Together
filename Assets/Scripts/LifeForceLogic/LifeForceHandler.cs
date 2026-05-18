@@ -11,9 +11,11 @@ public class LifeForceHandler : Singleton<LifeForceHandler>
 
     [SerializeField] private float lifeSpeed;
 
+    private float currentLifeSpeed; 
+
     [SerializeField] private Image fillImage;
 
-    [SerializeField] private float perilValue; 
+    [SerializeField] private float perilValue;     
 
     [SerializeField] private float perilSpeed;
 
@@ -42,6 +44,7 @@ public class LifeForceHandler : Singleton<LifeForceHandler>
         lifeForceBar.value = lifeForce;
         scaleValue = transform.localScale.x;
         barColor = fillImage.color;
+        currentLifeSpeed = lifeSpeed;
     }
 
     // Update is called once per frame
@@ -54,7 +57,7 @@ public class LifeForceHandler : Singleton<LifeForceHandler>
     {
         if(lifeForce > 0) 
         {
-            lifeForce -= Time.fixedDeltaTime * lifeSpeed; 
+            lifeForce -= Time.fixedDeltaTime * currentLifeSpeed; 
         }
 
         if(lifeForce > maxLifeForce) 
@@ -132,7 +135,17 @@ public class LifeForceHandler : Singleton<LifeForceHandler>
 
     public void ChangingLifeSpeed(float newLifeSpeed) 
     {
-        lifeSpeed = newLifeSpeed;
+        currentLifeSpeed = newLifeSpeed;
+    }
+
+    public void RestartLifeSpeed() 
+    {
+        currentLifeSpeed = lifeSpeed; 
+    }
+
+    public float GetCurrentLifeSpeed() 
+    {
+        return currentLifeSpeed;
     }
 
 }

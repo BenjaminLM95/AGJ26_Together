@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Waypoint
   - SpawnPoint
+  - ManaDrain
   layers:
   - Default
   - TransparentFX
