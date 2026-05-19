@@ -64,5 +64,6 @@ public class PlayerSpawnHandler : Singleton<PlayerSpawnHandler>
     public void UnparentObject() 
     {
         transform.parent = null;
+        DontDestroyOnLoad(this.gameObject);
     }
 }
