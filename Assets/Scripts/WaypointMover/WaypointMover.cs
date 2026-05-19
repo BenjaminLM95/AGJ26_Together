@@ -96,6 +96,7 @@ public class WaypointMover : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             collision.transform.SetParent(null);
+            DontDestroyOnLoad(collision.gameObject); 
         }
     }
 

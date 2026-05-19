@@ -5,7 +5,8 @@ public class LoseGameState : IGameState
     public void Enter()
     {
         Debug.Log("You lost");
-        Time.timeScale = 0f; 
+        Time.timeScale = 0f;
+        PlayerSpawnHandler.Instance.UnparentObject(); 
     }
 
     public void Exit()

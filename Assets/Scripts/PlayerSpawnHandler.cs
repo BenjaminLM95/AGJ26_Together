@@ -60,4 +60,9 @@ public class PlayerSpawnHandler : Singleton<PlayerSpawnHandler>
     {
         lastSpawnPoint = newSpawnPoint;
     }
+
+    public void UnparentObject() 
+    {
+        transform.parent = null;
+    }
 }
