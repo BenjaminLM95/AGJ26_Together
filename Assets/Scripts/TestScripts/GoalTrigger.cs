@@ -2,12 +2,15 @@ using UnityEngine;
 
 public class GoalTrigger : MonoBehaviour
 {
-    public bool isInGoal; 
+    public bool isInGoal;
+
+    [SerializeField] SpriteRenderer objSprite; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        isInGoal = false; 
+        isInGoal = false;
+        objSprite.enabled = true; 
     }
 
     // Update is called once per frame
@@ -16,17 +19,17 @@ public class GoalTrigger : MonoBehaviour
         
     }   
 
-    private void OnCollisionEnter(Collision collision)
+   
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player")) 
         {
-            if (!isInGoal)
+            if (!isInGoal) 
             {
                 isInGoal = true;
-                
-            }
+                objSprite.enabled = false;
 
-            GameFlowManager.Instance.ToWinGame();
+            }
         }
     }
 }

@@ -7,18 +7,24 @@ public class GetTheHeart : TaskBase
 
     private bool taskOpened = false;
 
+    [SerializeField] private GoalTrigger _goalTrigger; 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GiveTaskName("Find your heart");
         GiveTaskDescription("Find the yellow heart. You will be complete!");
         isUnassigned = true;
+        SearchForGoalTrigger(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(GameStateMachine.Instance.currentGameStateString == "GameplayState" && _goalTrigger == null) 
+        {
+            SearchForGoalTrigger(); 
+        }
     }
 
     public override bool CheckForRequirements()
@@ -30,6 +36,7 @@ public class GetTheHeart : TaskBase
             {
                 taskOpened = true;
                 StartCoroutine(OpenTask());
+                SearchForGoalTrigger(); 
                 return false;
             }
 
@@ -43,7 +50,15 @@ public class GetTheHeart : TaskBase
     }
 
     public override bool CheckConditions()
-    {       
+    {
+        if (_goalTrigger == null) return false;
+
+        if (_goalTrigger.isInGoal) 
+        {
+            SFXManager.Instance.PlaySoundFXClip("PH_WinSound"); 
+            StartCoroutine(WinTheGame()); 
+            return true; 
+        }
 
         return false;
     }
@@ -53,5 +68,19 @@ public class GetTheHeart : TaskBase
         yield return new WaitForSeconds(5f);
 
         openTask = true;
+    }
+
+    private void SearchForGoalTrigger() 
+    {
+        if (_goalTrigger == null)
+        {
+            _goalTrigger = FindFirstObjectByType<GoalTrigger>();
+        }
+    }
+
+    private IEnumerator WinTheGame() 
+    {
+        yield return new WaitForSeconds(2.5f); 
+        GameFlowManager.Instance.ToWinGame();
     }
 }

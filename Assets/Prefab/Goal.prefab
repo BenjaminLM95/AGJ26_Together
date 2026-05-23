@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInGoal: 0
+  objSprite: {fileID: 3670037920977266364}
 --- !u!212 &3670037920977266364
 SpriteRenderer:
   m_ObjectHideFlags: 0

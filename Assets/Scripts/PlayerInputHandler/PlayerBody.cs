@@ -14,7 +14,7 @@ public class PlayerBody : MonoBehaviour
 
     [SerializeField] private PlayerState savedState;
 
-    private MovementController movementController;
+    [SerializeField] private MovementController movementController;
 
     private void OnEnable()
     {
@@ -38,7 +38,7 @@ public class PlayerBody : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         SwitchState(savedState);
-        movementController = GetComponent<MovementController>();
+        //movementController = GetComponent<MovementController>();
         Debug.Log("Im back");
     }
 
@@ -76,6 +76,8 @@ public class PlayerBody : MonoBehaviour
         { 
             movementController.StopPlayerMovement();
         }
+
+        movementController.SetStats(newState); 
         
         currentState = newState;
         onStateChanged.RaiseEvent(currentState);
@@ -124,6 +126,7 @@ public class PlayerBody : MonoBehaviour
 
     public void RestartState() 
     {
-        currentState = PlayerState.Head;        
+        currentState = PlayerState.Head;
+        savedState = currentState; 
     }
 }

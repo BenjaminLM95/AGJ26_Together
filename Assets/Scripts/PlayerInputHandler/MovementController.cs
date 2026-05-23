@@ -27,7 +27,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] private float bodyRadius;
     [SerializeField] private float bodyHeight;
 
-    
+    private bool _canMove; 
     
 
     private void OnEnable()
@@ -36,6 +36,7 @@ public class MovementController : MonoBehaviour
         onStateChanged.gameEvent += GetCurrentState;
         onStateChanged.gameEvent += SetStateMode;
         ResetJumpCooldown();
+        _canMove = true;
     }
     private void OnDisable()
     {
@@ -43,6 +44,7 @@ public class MovementController : MonoBehaviour
         onStateChanged.gameEvent -= GetCurrentState;
         onStateChanged.gameEvent -= SetStateMode;
         ResetJumpCooldown();
+        _canMove = false;
     }
 
     private void GetCurrentState(PlayerState newState)
@@ -60,6 +62,7 @@ public class MovementController : MonoBehaviour
     {
         rb ??= GetComponent<Rigidbody>();
         playerColider ??= GetComponent<CapsuleCollider>();
+        
     }
 
     public void SetMove(Vector2 moveInput)
@@ -80,6 +83,8 @@ public class MovementController : MonoBehaviour
 
     private void HandleMovementState()
     {
+        if(!_canMove) return;
+
         //if (body == null) return;
         if (!CanMove()) return;
 
@@ -239,9 +244,16 @@ public class MovementController : MonoBehaviour
         else
         {
             SetWalkMode();
+            _canMove = false;
+            StartCoroutine(RestoreMovement());
         }
     }
 
+    private IEnumerator RestoreMovement() 
+    {
+        yield return new WaitForSeconds(0.5f);
+        _canMove = true; 
+    }
 
 
     private void OnDrawGizmos()
@@ -265,6 +277,65 @@ public class MovementController : MonoBehaviour
     public void ResetJumpCooldown() 
     {
         isJumpOnCooldown = false; 
+    }
+
+    private void SetHeadStats() 
+    {
+        moveSpeed = 2;
+        jumpCooldownTime = 0;
+        jumpForce = 0;
+    }
+
+    private void SetJumpLegStats() 
+    {
+        moveSpeed = 2;
+        jumpCooldownTime = 1.5f;
+        jumpForce = 3; 
+    }
+
+    private void SetCrystalLegStats() 
+    {
+        moveSpeed = 3;
+        jumpCooldownTime = 1f;
+        jumpForce = 3.5f; 
+    }
+
+    private void SetStrechyArmStats() 
+    {
+        moveSpeed = 3.75f;
+        jumpCooldownTime = 0.9f;
+        jumpForce = 4f;
+    }
+
+    private void SetFullBodyStats() 
+    {
+        moveSpeed = 4.25f;
+        jumpCooldownTime = 0.75f;
+        jumpForce = 4.75f; 
+    }
+
+    public void SetStats(PlayerState playerState) 
+    {
+        switch (playerState) 
+        {
+            case PlayerState.Head:
+                SetHeadStats();
+                break;
+            case PlayerState.JumpLeg: 
+                SetJumpLegStats(); 
+                break;
+            case PlayerState.CrystalLeg:
+                SetCrystalLegStats();
+                break;
+            case PlayerState.StretchyArm:
+                SetStrechyArmStats();
+                break;
+            case PlayerState.FullBody:
+                SetFullBodyStats();
+                break;
+            default:
+                break;
+        }
     }
         
 }

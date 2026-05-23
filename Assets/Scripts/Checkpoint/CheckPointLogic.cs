@@ -31,7 +31,8 @@ public class CheckPointLogic : MonoBehaviour
 
             spawnPoint.transform.position = transform.position;
             //PlayerBody.Instance.SavePlayerState();
-            PlayerSpawnHandler.Instance.GetNewSpawnPoint(transform.position); 
+            PlayerSpawnHandler.Instance.GetNewSpawnPoint(transform.position);
+            SFXManager.Instance.PlaySoundFXClip("PH_Checkpoint"); 
             this.gameObject.SetActive(false); 
 
             SavePlayerState(other.GetComponent<PlayerBody>());

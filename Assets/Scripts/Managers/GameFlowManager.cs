@@ -47,7 +47,7 @@ public class GameFlowManager : Singleton<GameFlowManager>
     public void ToGameplay()
     {
         SFXManager.Instance.PlaySoundFXClip("PH_MouseClick", 0.5f);
-        gameStateMachine.EnterGameplayState();
+        gameStateMachine.EnterGameplayState();        
         screenManager.ActivateGameplayScreen();        
     }
 

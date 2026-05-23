@@ -8,8 +8,13 @@ public class GameplayState : IGameState
 
         if(GameStateMachine.Instance.previousGameStateString != "PauseState") 
         {
-            AudioManager.Instance.PlayMusic("GameplayBackgroundMusic");
+            AudioManager.Instance.PlayMusic("GameplayBackgroundMusic");            
         }
+
+        /*if(GameStateMachine.Instance.previousGameStateString == "MainMenuState") 
+        {
+            PlayerSpawnHandler.Instance.RestartAllValues(); 
+        }*/
 
         Time.timeScale = 1.0f;
     }

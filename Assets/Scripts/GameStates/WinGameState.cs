@@ -10,7 +10,9 @@ public class WinGameState : IGameState
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("You win");
+        LifeForceHandler.Instance.ResetLifeForce();
+        PlayerSpawnHandler.Instance.RestartAllValues();
     }
 
     public void FixedUpdateState()

@@ -28,10 +28,22 @@ public class PlayerInSceneHandler : MonoBehaviour
                 if(playerObj == null) 
                 {
                     playerObj = Instantiate(playerPrefab, new Vector3(-9, 10, 0), Quaternion.identity);
+
+                    if (GameStateMachine.Instance.previousGameStateString == "MainMenuState")
+                    {
+                        PlayerSpawnHandler.Instance.RestartAllValues();
+                        Debug.Log("Restart values on instantiated player");
+                    }
                 }
                 else 
                 {
                     playerObj.SetActive(true);
+
+                    if (GameStateMachine.Instance.previousGameStateString == "MainMenuState") 
+                    {
+                        PlayerSpawnHandler.Instance.RestartAllValues();
+                        Debug.Log("Restart values on existing player"); 
+                    }
 
                 }
                     

@@ -5,7 +5,11 @@ public class PlayerSpawnHandler : Singleton<PlayerSpawnHandler>
 {
     [SerializeField] Vector3 lastSpawnPoint;
 
-    [SerializeField] GameObject _camara; 
+    [SerializeField] Vector3 startingSpawnPoint; 
+
+    [SerializeField] GameObject _camara;
+
+    [SerializeField] PlayerBody playerBody; 
     public override void Awake()
     {
         base.Awake();
@@ -19,6 +23,11 @@ public class PlayerSpawnHandler : Singleton<PlayerSpawnHandler>
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void Start()
+    {
+        lastSpawnPoint = startingSpawnPoint; 
     }
 
     private void Update()
@@ -65,5 +74,12 @@ public class PlayerSpawnHandler : Singleton<PlayerSpawnHandler>
     {
         transform.parent = null;
         DontDestroyOnLoad(this.gameObject);
+    }
+
+
+    public void RestartAllValues() 
+    {
+        lastSpawnPoint = startingSpawnPoint;
+        playerBody.RestartState(); 
     }
 }
