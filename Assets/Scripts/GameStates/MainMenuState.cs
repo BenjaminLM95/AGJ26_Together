@@ -10,6 +10,10 @@ public class MainMenuState : IGameState
         {
             AudioManager.Instance.PlayMusic("MainMenu_Music");
         }
+
+        TaskHandler.Instance.SetAllTasks();
+        LifeForceHandler.Instance.ResetLifeForce();        
+        PlayerScoreManager.Instance.RestartScore();
     }
 
     public void Exit()

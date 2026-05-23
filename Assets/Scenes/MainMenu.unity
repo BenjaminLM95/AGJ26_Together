@@ -6863,7 +6863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a177890cd808143a372e11729d7077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unassignedTasks:
+  allTasks:
   - {fileID: 1700897266}
   - {fileID: 633502598}
   - {fileID: 1172164383}
@@ -6871,6 +6871,7 @@ MonoBehaviour:
   - {fileID: 691400632}
   - {fileID: 686976560}
   - {fileID: 545133697}
+  unassignedTasks: []
   inProgressTasks: []
   completedTasks: []
   updateTaskList: 0

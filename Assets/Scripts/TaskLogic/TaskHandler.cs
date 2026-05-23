@@ -4,6 +4,8 @@ using System.Security.Cryptography.X509Certificates;
 
 public class TaskHandler : Singleton<TaskHandler>
 {
+    public List<TaskBase> allTasks = new List<TaskBase>();
+
     public List<TaskBase> unassignedTasks = new List<TaskBase>();
 
     public List<TaskBase> inProgressTasks = new List<TaskBase>();
@@ -19,7 +21,7 @@ public class TaskHandler : Singleton<TaskHandler>
 
     private void Start()
     {
-        
+        SetAllTasks(); 
     }
 
     private void Update()
@@ -78,6 +80,23 @@ public class TaskHandler : Singleton<TaskHandler>
         inProgressTasks.Remove(task);
 
         updateTaskList = true;
+    }
+
+    public void SetAllTasks() 
+    {
+        if (allTasks.Count <= 0) return;
+
+        unassignedTasks.Clear();
+        inProgressTasks.Clear();
+        completedTasks.Clear();
+
+        
+        for (int i = 0; i < allTasks.Count; i++) 
+        {
+            allTasks[i].ResetTaskData(); 
+            allTasks[i].ResetTaskStatus(); 
+            unassignedTasks.Add(allTasks[i]); 
+        }
     }
 
 }

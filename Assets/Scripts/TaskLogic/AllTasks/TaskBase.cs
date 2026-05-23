@@ -74,5 +74,18 @@ public class TaskBase : MonoBehaviour, ITaskLogic
     { 
         taskDescription = tDescription; 
     }
+
+    public void ResetTaskData() 
+    {        
+        isInProgress = false;
+        isFinished = false; 
+    }
+
+    public virtual void ResetTaskStatus() 
+    {
+        Debug.Log("Something awesome happens");
+    }
+
+   
  
 }

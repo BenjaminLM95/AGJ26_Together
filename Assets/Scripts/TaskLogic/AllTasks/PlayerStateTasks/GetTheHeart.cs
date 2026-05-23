@@ -78,6 +78,12 @@ public class GetTheHeart : TaskBase
         }
     }
 
+    public override void ResetTaskStatus()
+    {
+        openTask = false;
+        taskOpened = false;
+    }
+
     private IEnumerator WinTheGame() 
     {
         yield return new WaitForSeconds(2.5f); 

@@ -57,6 +57,12 @@ public class GetSecondLegTask : TaskBase
         return false;
     }
 
+    public override void ResetTaskStatus()
+    {
+        openTask = false;
+        taskOpened = false;
+    }
+
     private IEnumerator OpenTask() 
     {
         yield return new WaitForSeconds(5f); 

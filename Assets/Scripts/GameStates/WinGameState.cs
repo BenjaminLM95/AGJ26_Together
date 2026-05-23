@@ -4,15 +4,16 @@ public class WinGameState : IGameState
 {
     public void Enter()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 0f;        
         Debug.Log("You won"); 
     }
 
     public void Exit()
-    {
-        Debug.Log("You win");
+    {    
+        TaskHandler.Instance.SetAllTasks();
         LifeForceHandler.Instance.ResetLifeForce();
         PlayerSpawnHandler.Instance.RestartAllValues();
+        PlayerScoreManager.Instance.RestartScore(); 
     }
 
     public void FixedUpdateState()

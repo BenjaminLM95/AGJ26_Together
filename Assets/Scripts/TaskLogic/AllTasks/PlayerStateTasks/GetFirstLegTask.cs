@@ -33,6 +33,11 @@ public class GetFirstLegTask : TaskBase
         return false;
     }
 
+    public override void ResetTaskStatus()
+    {
+        Debug.Log("No reset values here");
+    }
+
     public override bool CheckConditions() 
     {
         if (GameStateMachine.Instance.currentGameStateString == "GameplayState")

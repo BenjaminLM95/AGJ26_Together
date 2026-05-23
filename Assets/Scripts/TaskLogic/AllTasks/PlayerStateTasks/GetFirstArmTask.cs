@@ -23,10 +23,10 @@ public class GetFirstArmTask : TaskBase
 
     public override bool CheckForRequirements()
     {
-        if (GameStateMachine.Instance.currentGameStateString == "GameplayState" && !taskOpened)
+        if (GameStateMachine.Instance.currentGameStateString == "GameplayState")
         {
 
-            if (currentState == PlayerState.CrystalLeg)
+            if (currentState == PlayerState.CrystalLeg && !taskOpened)
             {
                 taskOpened = true;
                 StartCoroutine(OpenTask());
@@ -55,6 +55,12 @@ public class GetFirstArmTask : TaskBase
         }
 
         return false;
+    }
+
+    public override void ResetTaskStatus()
+    {
+        openTask = false;
+        taskOpened = false;
     }
 
     private IEnumerator OpenTask()
