@@ -11,13 +11,14 @@ public class UIManager : Singleton<UIManager>
     public GameObject settingScreen; 
     public GameObject winScreen;
     public GameObject loseScreen;
+    public GameObject creditScreen; 
 
     #endregion
 
     public override void Awake()
     {
         base.Awake();
-    }
+    }    
 
     public void ActivateMainMenuScreen()
     {
@@ -49,6 +50,11 @@ public class UIManager : Singleton<UIManager>
         ActivateScreen(loseScreen);
     }
 
+    public void ActivateCreditScreen() 
+    {
+        ActivateScreen(creditScreen);
+    }
+
     private void ActivateScreen(GameObject screen)
     {
         if (screen == null) return;
@@ -66,6 +72,7 @@ public class UIManager : Singleton<UIManager>
         gameplayScreen.SetActive(false);
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
+        creditScreen.SetActive(false);
     }
 
 }

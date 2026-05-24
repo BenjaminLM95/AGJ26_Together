@@ -59,6 +59,14 @@ public class GameFlowManager : Singleton<GameFlowManager>
         levelManager.LoadCurrentScene(); 
     }
 
+    public void Retry() 
+    {
+        PlayerSpawnHandler.Instance.UnparentObject();
+        LifeForceHandler.Instance.ResetLifeForce();        
+        PlayerScoreManager.Instance.RestartScore();
+        RestartGame(); 
+    }
+
     public void ToPause()
     {
         SFXManager.Instance.PlaySoundFXClip("PH_MouseClick", 0.5f); 
@@ -93,10 +101,18 @@ public class GameFlowManager : Singleton<GameFlowManager>
         ChangeGameFlow(gameStateMachine.GetPreviousState()); 
     }
 
+    public void ToCredits() 
+    {
+        gameStateMachine.EnterCreditsState();
+        screenManager.ActivateCreditScreen();
+    }
+
     public void QuitGame() 
     {
         Application.Quit();
     }
+
+
 
 
     private void ChangeGameFlow(IGameState gameState) 

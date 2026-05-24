@@ -11,6 +11,7 @@ public class GameStateMachine : Singleton<GameStateMachine>
     public GameplayState gameplayState = new GameplayState();
     public LoseGameState loseState = new LoseGameState();
     public WinGameState winState = new WinGameState();
+    public CreditState creditState = new CreditState();
 
 
     #endregion
@@ -55,6 +56,11 @@ public class GameStateMachine : Singleton<GameStateMachine>
     public void EnterWinGameState() 
     {
         ChangeGameState(winState);
+    }
+
+    public void EnterCreditsState() 
+    {
+        ChangeGameState(creditState); 
     }
 
     public void ChangeGameState(IGameState gameState)
