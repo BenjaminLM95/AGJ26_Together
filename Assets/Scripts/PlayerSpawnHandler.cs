@@ -55,6 +55,8 @@ public class PlayerSpawnHandler : Singleton<PlayerSpawnHandler>
         {
             transform.position = lastSpawnPoint;            
         }
+
+        DisablePartOfBodyOnMap();
     }
 
     public void MoveToSpawnPoint() 
@@ -80,6 +82,21 @@ public class PlayerSpawnHandler : Singleton<PlayerSpawnHandler>
     public void RestartAllValues() 
     {
         lastSpawnPoint = startingSpawnPoint;
-        playerBody.RestartState(); 
+        playerBody.RestartState();
+        
     }
+
+    public void DisablePartOfBodyOnMap() 
+    {
+        BodypartsHandler bodypartHandler = FindFirstObjectByType<BodypartsHandler>();
+        Debug.Log("Trying to find the body part handler");
+
+        if(bodypartHandler != null)
+        {
+            bodypartHandler.DisableParts(playerBody.GetCurrentState());
+            Debug.Log("Body Part: " + playerBody.GetCurrentState()); 
+        }
+
+    }
+
 }
